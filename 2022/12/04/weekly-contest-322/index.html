@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weekly-contest-322 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Leetcode 2493. Divide Nodes...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">weekly-contest-322</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">weekly-contest-322</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 04, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>5261</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="Leetcode-2493-Divide-Nodes-Into-the-Maximum-Number-of-Groups"><a href="#Leetcode-2493-Divide-Nodes-Into-the-Maximum-Number-of-Groups" class="headerlink" title="Leetcode 2493. Divide Nodes Into the Maximum Number of Groups"></a>Leetcode 2493. Divide Nodes Into the Maximum Number of Groups</h4><p>(1) find each connected component in the graph<br>This can be done using BFS, DFS, Union-Find.</p>
+<p>(2) find the maximum number of groups in each connected component</p>
+<p>This can be done using a BFS.<br>But we need to check if there is a odd number edge cycle in the graph, because that will make it impossible to group the nodes with the given conditions.<br>To find the maximum number of groups, we will have to start the search from each node. Note that the number of nodes is 500, so O(n * (n + m)) is fine, where n &#x3D; number of nodes, m &#x3D; number of edges.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1. Union-Find find each connected component in the graph</span><br><span class="hljs-comment">### p is a hash map where you can find the root of a group of elements giving an element.</span><br><span class="hljs-comment">### A key in p is a element, p[x] is x&#x27;s parent.</span><br><span class="hljs-comment">### If p[x] == x meaning x is the root of its group.</span><br>p = &#123;&#125;<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">if</span> x <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> p:<br>        p[x] = x<br>    <br>    <span class="hljs-keyword">if</span> x != p[x]:<br>        p[x] = find(p[x])<br>    <span class="hljs-keyword">return</span> p[x]<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">union</span>(<span class="hljs-params">x,y</span>):<br>    rootx = find(x)<br>    rooty = find(y)<br>    p[rootx] = rooty<br><br><span class="hljs-comment"># 2. BFS find the maximum number of groups in each connected component</span><br><br><span class="hljs-comment">### Do a BFS on the graph given a start point.</span><br><span class="hljs-comment">### One thing we have to do is to check if the graph has a odd number edges cycle.</span><br><span class="hljs-comment">### This is done by checking the if the neighbor node has been visited before </span><br><span class="hljs-comment">### and if the neighbor was on the same level as the current node when we were visiting the neighbor.</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bfs</span>(<span class="hljs-params">node</span>):<br>    q = deque([node,<span class="hljs-number">1</span>])<br>    seen = &#123;node:<span class="hljs-number">1</span>&#125;<br>    level = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">while</span> q:<br>        cur, level = q.popleft()<br>        <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> graph[node]:<br>            <span class="hljs-keyword">if</span> nei <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> seen:<br>                seen[nei] = level + <span class="hljs-number">1</span><br>                q.append([nei, level+<span class="hljs-number">1</span>])<br>            <span class="hljs-comment"># circle exist</span><br>            <span class="hljs-keyword">elif</span> seen[nei] == level:<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    <span class="hljs-comment"># Maximum level count</span><br>    <span class="hljs-keyword">return</span> level<br><br><br><span class="hljs-comment"># Build the graph</span><br>graph = defaultdict(<span class="hljs-built_in">list</span>)<br><span class="hljs-keyword">for</span> s,e <span class="hljs-keyword">in</span> edges:<br>    graph[s].append(e)<br>    graph[e].append(s)<br>    union(s,e)<br><br><span class="hljs-comment">### Store the largest group in each connected component</span><br>maxGroup = defaultdict(<span class="hljs-built_in">int</span>) <br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    groups = bfs(i)<br>    <span class="hljs-keyword">if</span> groups == -<span class="hljs-number">1</span>:<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    <br>    root = find(i)<br>    maxGroup[root] = <span class="hljs-built_in">max</span>(maxGroup[root], groups)<br><br><span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(maxGroup.values())<br></code></pre></td></tr></table></figure>
+
+
+<p>find each connected component in the graph<br>找连通分量的几种方法</p>
+<ol>
+<li>Union Find</li>
+<li>DFS<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1. Union-Find</span><br>p = &#123;&#125;<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">if</span> x <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> p:<br>        p[x] = x<br>    <span class="hljs-keyword">if</span> x != p[x]:<br>        p[x] = find(p[x])<br>    <span class="hljs-keyword">return</span> p[x]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">union</span>(<span class="hljs-params">x,y</span>):<br>    px,py = find(x), find(y)<br>    p[px] = py<br><br><span class="hljs-comment"># 2.1 DFS 1</span><br><span class="hljs-comment"># visited here refers to the color in dfs2</span><br><span class="hljs-comment"># connectedComponent here refers to the visted in dfs2</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node</span>):<br>    <span class="hljs-keyword">nonlocal</span> visited<br>    <span class="hljs-keyword">nonlocal</span> connectedComponent<br>    <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> graph[node]:<br>        <span class="hljs-keyword">if</span> nei <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> connectedComponent:<br>            connectedComponent.add(nei)<br>            dfs(nei)<br>            visited.add(nei)<br><br>visited = <span class="hljs-built_in">set</span>()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">if</span> i <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> visited:<br>        connectedComponent = &#123;i&#125;<br>        <br>        <span class="hljs-comment">### Using DFS to find the connect component</span><br>        dfs(i)<br><br><span class="hljs-comment"># 2.2 DFS 2</span><br>group = defaultdict(<span class="hljs-built_in">set</span>)<br>ct = <span class="hljs-number">0</span><br>color = [<span class="hljs-number">0</span>]*(n+<span class="hljs-number">1</span>)<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node</span>):<br>    <span class="hljs-comment"># 改变点的状态</span><br>    color[node] = <span class="hljs-number">1</span><br>    <span class="hljs-comment"># 并且记录被访问的点</span><br>    group[ct].add(node)<br>    <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[node]:<br>        <span class="hljs-keyword">if</span> color[nei] == <span class="hljs-number">0</span>:<br>            dfs(nei)<br><br><span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">if</span> color[node] == <span class="hljs-number">0</span>:<br>        dfs(node)<br>        ct += <span class="hljs-number">1</span><br><br></code></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">magnificentSets</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, edges: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        group = defaultdict(<span class="hljs-built_in">set</span>)<br>        ct = <span class="hljs-number">0</span><br>        color = [<span class="hljs-number">0</span>]*(n+<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-comment"># 改变点的状态</span><br>            color[node] = <span class="hljs-number">1</span><br>            <span class="hljs-comment"># 并且记录被访问的点</span><br>            group[ct].add(node)<br>            <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[node]:<br>                <span class="hljs-keyword">if</span> color[nei] == <span class="hljs-number">0</span>:<br>                    dfs(nei)<br>                    <br>        g = defaultdict(<span class="hljs-built_in">set</span>)<br>        <span class="hljs-keyword">for</span> s,e <span class="hljs-keyword">in</span> edges:<br>            g[s].add(e)<br>            g[e].add(s)<br>        <br>        <span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> color[node] == <span class="hljs-number">0</span>:<br>                dfs(node)<br>                ct += <span class="hljs-number">1</span><br>        <br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">count</span>(<span class="hljs-params">nodes</span>):<br>            res = -<span class="hljs-number">1</span><br>            <span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> nodes:<br>                visited = <span class="hljs-built_in">set</span>([node])<br>                q = deque([node])<br>                l = <span class="hljs-number">0</span><br>                <span class="hljs-keyword">while</span> q:<br>                    <span class="hljs-comment"># print(q)</span><br>                    level = <span class="hljs-built_in">set</span>()<br>                    neis = <span class="hljs-built_in">set</span>()<br>                    l += <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(q)):<br>                        cur = q.popleft()<br>                        <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[cur]:<br>                            <span class="hljs-keyword">if</span> nei <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> visited:<br>                                q.append(nei)<br>                                visited.add(nei)<br>                                level.add(nei)<br>                                neis = neis.union(g[nei])<br>                    <br>                    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(level &amp; neis) != <span class="hljs-number">0</span>:<br>                        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>                    <br>                res = <span class="hljs-built_in">max</span>(res, l)<br>            <span class="hljs-keyword">return</span> res<br>        <br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> key, nodes <span class="hljs-keyword">in</span> group.items():<br>            cnt = count(nodes)<br>            <span class="hljs-keyword">if</span> cnt == -<span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>            res += cnt<br>        <span class="hljs-keyword">return</span> res<br>                    <br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/12/04/weekly-contest-322/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;12&#x2F;04&#x2F;weekly-contest-322&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;12&#x2F;04&#x2F;weekly-contest-322&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weekly-contest/" rel="tag">weekly-contest</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/12/05/ProductSense/"><i class="iconfont iconleft"></i>Emma-Ding</a>
+    <a href="/2022/11/28/AB-testing/">AB-testing<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

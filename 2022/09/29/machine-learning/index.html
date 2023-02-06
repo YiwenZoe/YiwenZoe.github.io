@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>machine-learning - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Chapter 1Supervised Machine...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">machine-learning</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">machine-learning</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>September 29, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1688</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h1><h2 id="Supervised-Machine-Learning"><a href="#Supervised-Machine-Learning" class="headerlink" title="Supervised Machine Learning"></a>Supervised Machine Learning</h2><ul>
+<li>k-Nearest Neighbors</li>
+<li>Linear Regression</li>
+<li>Logistic Regression</li>
+<li>Support Vector Machines(SVMs)</li>
+<li>Decision Trees and Random Forest</li>
+<li>Neural networks</li>
+</ul>
+<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h3 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h3><ul>
+<li>K-Means</li>
+<li>DBSCAN</li>
+<li>Hierarchical Cluster Analysis(HCA)</li>
+</ul>
+<h3 id="Anomaly-detection-and-novelty-detection"><a href="#Anomaly-detection-and-novelty-detection" class="headerlink" title="Anomaly detection and novelty detection"></a>Anomaly detection and novelty detection</h3><ul>
+<li>One-class SVM</li>
+<li>Isolation Forest</li>
+</ul>
+<h4 id="novelty-detection"><a href="#novelty-detection" class="headerlink" title="novelty detection"></a>novelty detection</h4><p>Detect new instances that look different form all instances in training set.<br>Require very clean data.</p>
+<p>If there are 99% of dogs and 1% are Chihuahua.<br>Novelty detection -&gt; NOT treate Chihuahua as novelties.<br>Anomaly detection -&gt; Treate  Chihuahua as anomalies.</p>
+<h3 id="Visualiization-and-dimenionality-reduction"><a href="#Visualiization-and-dimenionality-reduction" class="headerlink" title="Visualiization and dimenionality reduction"></a>Visualiization and dimenionality reduction</h3><ul>
+<li>Principal Component Analysis(PCA)</li>
+<li>Kernal PCA</li>
+<li>Locally Linear Embedding(LLE)</li>
+<li>t-Distributed Stochastic Neighbor Embedding(t-SNE)</li>
+</ul>
+<h3 id="Association-rule-learning"><a href="#Association-rule-learning" class="headerlink" title="Association rule learning"></a>Association rule learning</h3><p>Goal is dig into large amount of data and discover interesting relations between attributes.</p>
+<ul>
+<li>Apriori</li>
+<li>Eclat</li>
+</ul>
+<h3 id="Dimensionality-reduction"><a href="#Dimensionality-reduction" class="headerlink" title="Dimensionality reduction"></a>Dimensionality reduction</h3><ul>
+<li>Feature extraction<br>Merge several correlated features into one.</li>
+</ul>
+<h3 id="Semisupervised-learning"><a href="#Semisupervised-learning" class="headerlink" title="Semisupervised learning"></a>Semisupervised learning</h3><p>Deal with data that’s partially labeled.</p>
+<h3 id="Offline-Learning"><a href="#Offline-Learning" class="headerlink" title="Offline Learning"></a>Offline Learning</h3><p>Batch Learning - Use all the data</p>
+<h3 id="Online-Learning"><a href="#Online-Learning" class="headerlink" title="Online Learning"></a>Online Learning</h3><p>Mini-Batch learning</p>
+<h1 id="Chapter-2-End-to-End-Machine-Learning"><a href="#Chapter-2-End-to-End-Machine-Learning" class="headerlink" title="Chapter 2 End to End Machine Learning"></a>Chapter 2 End to End Machine Learning</h1><ol>
+<li>Cost Function:<br>RMSE: Euclidean norm(l2 norm)<br>MAE: Manhattan norm(l1 norm)</li>
+</ol>
+<p>The higher the norm index, the more it focuses on large values and neglects small ones.</p>
+<ol start="2">
+<li>Stratified sampling<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> StratifiedShuffleSplit<br>split = StratifiedShuffleSplit(n_splits = <span class="hljs-number">1</span>, test_size = <span class="hljs-number">0.2</span>, random_state = <span class="hljs-number">42</span>)<br><br><span class="hljs-keyword">for</span> tain_index, test_index <span class="hljs-keyword">in</span> split.split(housing, housing[<span class="hljs-string">&#x27;income_cat&#x27;</span>]):<br>    strat_train_set = housing.loc[train_index]<br>    strat_test_set = housing.loc[test_index]<br></code></pre></td></tr></table></figure></li>
+</ol>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/09/29/machine-learning/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;09&#x2F;29&#x2F;machine-learning&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;09&#x2F;29&#x2F;machine-learning&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-leanring/" rel="tag">machine leanring</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/10/15/weekly-contest-315/"><i class="iconfont iconleft"></i>weekly-contest-315</a>
+    <a href="/2022/09/28/linked-list/">linked-list<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1"><span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Supervised-Machine-Learning"><span class="toc-text">Supervised Machine Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsupervised-Learning"><span class="toc-text">Unsupervised Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Clustering"><span class="toc-text">Clustering</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anomaly-detection-and-novelty-detection"><span class="toc-text">Anomaly detection and novelty detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualiization-and-dimenionality-reduction"><span class="toc-text">Visualiization and dimenionality reduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Association-rule-learning"><span class="toc-text">Association rule learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dimensionality-reduction"><span class="toc-text">Dimensionality reduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Semisupervised-learning"><span class="toc-text">Semisupervised learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Offline-Learning"><span class="toc-text">Offline Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-Learning"><span class="toc-text">Online Learning</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-End-to-End-Machine-Learning"><span class="toc-text">Chapter 2 End to End Machine Learning</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dfs - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Leetcode 2360. Longest Cycl...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">dfs</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">dfs</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 02, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>12192</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="Leetcode-2360-Longest-Cycle-in-a-Graph"><a href="#Leetcode-2360-Longest-Cycle-in-a-Graph" class="headerlink" title="Leetcode 2360. Longest Cycle in a Graph"></a>Leetcode 2360. Longest Cycle in a Graph</h4><ul>
+<li>DFS</li>
+</ul>
+<ul>
+<li><p>one node can have 3 status:</p>
+<ul>
+<li>0: not visited（没有访问过）</li>
+<li>1: visiting(正在访问)</li>
+<li>2: visited(已经访问过)</li>
+</ul>
+</li>
+<li><p>step1 build the graph</p>
+</li>
+<li><p>Store the depth of each node, step &#x3D; abs(depth1-depth2) + 1</p>
+</li>
+<li><p>step2 if a node’s neighbor’s status is 1(visiting) which means there is a cricle.</p>
+</li>
+<li><p>step3 Each node has at most one out-going edge. This is the key to solve this problem, because it means it’s not possible for one node i to be joint point for multiple cycles. In another word, if one node i belongs to one cycle, then it must belong to that cycle only. With this observation, we can skip those nodes that have been visited since they will never be the starting point of the new cycle, which reduce the time complexity to linear.</p>
+</li>
+<li><p>Time Complexity &#x3D; O(N)</p>
+</li>
+<li><p>Space Complexity &#x3D; O(N)</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">longestCycle</span>(<span class="hljs-params">self, edges: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Count of the node</span><br>        n = <span class="hljs-built_in">len</span>(edges)<br><br>        <span class="hljs-comment"># step1 build the graph</span><br>        g = collections.defaultdict(<span class="hljs-built_in">set</span>)<br>        <span class="hljs-keyword">for</span> index, node <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(edges):<br>            <span class="hljs-keyword">if</span> node != -<span class="hljs-number">1</span>:<br>                g[index].add(node)<br>        <br>        <span class="hljs-comment"># step2 Initialize the state of the node</span><br>        state = [<span class="hljs-number">0</span>] * n<br><br>        <span class="hljs-comment"># step3 Store the depth of each node</span><br>        dm = &#123;&#125;<br><br>        <span class="hljs-comment"># global res</span><br>        <span class="hljs-comment"># 数值型变量，在function中需要nonlocal</span><br>        <span class="hljs-comment"># 地址型变量，不需要nonlocal</span><br>        res = -<span class="hljs-number">1</span><br><br>        <span class="hljs-comment"># step4 DFS</span><br>        <span class="hljs-comment"># The initialize depth of starting node is 0</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node, depth</span>):<br>            <span class="hljs-keyword">nonlocal</span> res<br>            <span class="hljs-comment"># change state to 1</span><br>            state[node] = <span class="hljs-number">1</span><br>            <span class="hljs-comment"># store the depth of the node</span><br>            dm[node] = depth<br>            <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[node]:<br>                <span class="hljs-comment"># find the circle</span><br>                <span class="hljs-keyword">if</span> state[nei] == <span class="hljs-number">1</span>:<br>                    diff = <span class="hljs-built_in">abs</span>(dm[nei] - dm[node]) + <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">if</span> diff &gt; res:<br>                        res = diff<br>                <span class="hljs-keyword">elif</span> state[nei] == <span class="hljs-number">0</span>:<br>                    dfs(nei, depth + <span class="hljs-number">1</span>)<br>            <span class="hljs-comment"># change the status of the visited starting node to 2</span><br>            state[node] = <span class="hljs-number">2</span><br>        <br>        <span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">if</span> state[node] == <span class="hljs-number">0</span>:<br>                dfs(node, <span class="hljs-number">0</span>)<br>        <br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-261-Graph-Valid-Tree"><a href="#Leetcode-261-Graph-Valid-Tree" class="headerlink" title="Leetcode 261. Graph Valid Tree"></a>Leetcode 261. Graph Valid Tree</h4><h4 id="Valid-Tree"><a href="#Valid-Tree" class="headerlink" title="Valid Tree"></a>Valid Tree</h4><ul>
+<li>No circle in the tree</li>
+<li>Every node are connected with other nodes in the tree</li>
+</ul>
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><ul>
+<li>step1 Build the graph</li>
+<li>step2 Check if there is circle in the tree<ul>
+<li><ol>
+<li>state of each node: 0, 1, 2</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">validTree</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, edges: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># step1 build the graph</span><br>        g = defaultdict(<span class="hljs-built_in">set</span>)<br>        <span class="hljs-keyword">for</span> x,y <span class="hljs-keyword">in</span> edges:<br>            g[x].add(y)<br>            g[y].add(x)<br>        <br>        <span class="hljs-comment"># step2 Initialize the state of each node</span><br>        state = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br><br>        <span class="hljs-comment"># step3 Return if there a cricle in the tree starting with node</span><br>        <span class="hljs-comment"># if the neighbor of node is the parent, then continue</span><br>        <span class="hljs-comment"># We only want to node to traverse down NOT up, otherwise it will always has a circle</span><br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">parent, node</span>):<br>            <span class="hljs-comment"># visiting</span><br>            state[node] = <span class="hljs-number">1</span><br>            <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[node]:<br>                <span class="hljs-keyword">if</span> nei == parent: <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">if</span> state[nei] == <span class="hljs-number">1</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">elif</span> state[nei] == <span class="hljs-number">0</span>:<br>                    <span class="hljs-keyword">if</span> dfs(node, nei):<br>                        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            state[node] = <span class="hljs-number">2</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <br><br>        <span class="hljs-comment"># step4. Traverse all nodes</span><br>        <span class="hljs-comment"># 1. Check if all nodes are connected with other nodes</span><br>        <span class="hljs-comment"># ct should = 2 if each node are connected with all other nodes</span><br>        <span class="hljs-comment"># 2. Check if there is circle in the tree</span><br><br>        ct = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">if</span> state[node] == <span class="hljs-number">0</span>:<br>                ct += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">if</span> dfs(-<span class="hljs-number">1</span>, node):<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>                <span class="hljs-keyword">if</span> ct &gt; <span class="hljs-number">2</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <br>        <span class="hljs-keyword">return</span> ct == <span class="hljs-number">2</span><br>              <br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Leetcode-46-Permutations"><a href="#Leetcode-46-Permutations" class="headerlink" title="Leetcode 46. Permutations"></a>Leetcode 46. Permutations</h4><ul>
+<li>Backtracking</li>
+<li>Notice: path –&gt; generate a new variable: path[:]</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">permute</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        st = [<span class="hljs-literal">False</span>]*n<br>        path = [<span class="hljs-literal">False</span>]*n<br>        res = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">u</span>):<br>            <span class="hljs-comment"># u: 第几个数</span><br>            <span class="hljs-comment"># 一个permutation结束</span><br>            <span class="hljs-keyword">if</span> u == n:<br>                <span class="hljs-comment"># should use path[:], otherwise the variable address of path does not change</span><br>                res.append(path[:])<br>            <br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> st[i]:<br>                    path[u] = nums[i]<br>                    st[i] = <span class="hljs-literal">True</span><br>                    dfs(u+<span class="hljs-number">1</span>)<br>                    st[i] = <span class="hljs-literal">False</span><br>        <br>        dfs(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Leetcode-47-Permutations-II"><a href="#Leetcode-47-Permutations-II" class="headerlink" title="Leetcode 47. Permutations II"></a>Leetcode 47. Permutations II</h4><ul>
+<li>Backtracking</li>
+<li>Notice: path –&gt; generate a new variable: path[:]</li>
+<li>Now consider the case where there are duplicates in nums.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># The idea is still the same. except we only put the duplicated element in the front once.</span><br><br><span class="hljs-comment"># For example, 11223</span><br><span class="hljs-comment"># let 1 be the first element, recursively permute 1223</span><br><span class="hljs-comment"># let 2 be the first element, recursively permute 1123</span><br><span class="hljs-comment"># let 3 be the first element, recursively permute 1122</span><br><br><span class="hljs-comment"># Method 1 Use Set to store the results</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">permuteUnique</span>(<span class="hljs-params">self, nums</span>):<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        st = [<span class="hljs-literal">False</span>]*n<br>        path = [<span class="hljs-literal">False</span>]*n<br>        res = <span class="hljs-built_in">set</span>()<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">u</span>):<br>            <span class="hljs-comment"># u: 第几个数</span><br>            <span class="hljs-comment"># 一个permutation结束</span><br>            <span class="hljs-keyword">if</span> u == n:<br>                <span class="hljs-comment"># should use path[:], otherwise the variable address of path does not change</span><br>                res.add(<span class="hljs-built_in">tuple</span>(path[:]))<br>            <br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> st[i]:<br>                    path[u] = nums[i]<br>                    st[i] = <span class="hljs-literal">True</span><br>                    dfs(u+<span class="hljs-number">1</span>)<br>                    st[i] = <span class="hljs-literal">False</span><br>        <br>        dfs(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> res<br><br><br><span class="hljs-comment"># Method 2 For duplicated number,we can put the duplciated elements in the front once</span><br><span class="hljs-comment"># Method 2.1 intuitive recursion (beat 60.77%) </span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">permuteUnique</span>(<span class="hljs-params">self, nums</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        :type nums: List[int]</span><br><span class="hljs-string">        :rtype: List[List[int]]</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(nums) == <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> [[]]<br><br>        res = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span>(nums):<br>            remain = <span class="hljs-built_in">list</span>(nums)<br>            remain.remove(i)<br>            <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> self.permuteUnique(remain):<br>                res.append([i] + p)<br>        <br>        <span class="hljs-keyword">return</span> res<br><br><span class="hljs-comment"># Method 2.2 backtracking  (beat 94.13%)</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">permuteUnique</span>(<span class="hljs-params">self, nums</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        :type nums: List[int]</span><br><span class="hljs-string">        :rtype: List[List[int]]</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br><br>        n = <span class="hljs-built_in">len</span>(nums)<br>        res = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">nums,l</span>):<br>            <span class="hljs-keyword">if</span> l == n-<span class="hljs-number">1</span>:<br>                res.append(<span class="hljs-built_in">list</span>(nums))<br>                <span class="hljs-keyword">return</span><br>            <br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span>(nums[l:]):<br>                remaining = nums[l:]<br>                remaining.remove(i)<br>                dfs(nums[:l] + [i] + remaining, l+<span class="hljs-number">1</span>)<br>        <br>        dfs(nums, <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree"><a href="#Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree" class="headerlink" title="Leetcode 108. Convert Sorted Array to Binary Search Tree"></a>Leetcode 108. Convert Sorted Array to Binary Search Tree</h4><ul>
+<li>Divide and Conquer</li>
+<li>The idea is to find the root first, then recursively build each left and right subtree</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a  binary tree node</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, x):</span><br><span class="hljs-comment">#         self.val = x</span><br><span class="hljs-comment">#         self.left = None</span><br><span class="hljs-comment">#         self.right = None</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-comment"># @param num, a list of integers</span><br>    <span class="hljs-comment"># @return a tree node</span><br>    <span class="hljs-comment"># 12:37</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sortedArrayToBST</span>(<span class="hljs-params">self, num</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> num:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>        <br>        mid = <span class="hljs-built_in">len</span>(num)//<span class="hljs-number">2</span><br>        root = TreeNode(num[mid])<br>        root.left = self.sortedArrayToBST(num[:mid])<br>        root.left = self.sortedArrayToBST(num[mid+<span class="hljs-number">1</span>:])<br><br>        <span class="hljs-keyword">return</span> root<br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-39-Combination-Sum"><a href="#Leetcode-39-Combination-Sum" class="headerlink" title="Leetcode 39. Combination Sum"></a>Leetcode 39. Combination Sum</h4><ul>
+<li>Backtracking</li>
+<li>从前往后遍历，So to make the solution unique we are only considering the part of the array from current last element to the end element </li>
+<li>Time Complextity: O(n^(target&#x2F;min)), n为集合中数字个数，min为集合中最小的数字<ul>
+<li>每个位置可以取集合中的任意数字，最多有target&#x2F;min个数字。</li>
+</ul>
+</li>
+<li>Space Complexity: O(n^(target&#x2F;min)), n为集合中数字个数，min为集合中最小的数字<ul>
+<li>对于用来保存答案的列表, 最多有n^(target&#x2F;min)个组合</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method 1</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combinationSum</span>(<span class="hljs-params">self, candidates: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        res = []<br>        path = []<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">numbers, target</span>):<br>            <span class="hljs-keyword">if</span> target &lt; <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> <br>            <span class="hljs-keyword">if</span> target == <span class="hljs-number">0</span>:<br>                <span class="hljs-comment"># deepcopy</span><br>                res.append(<span class="hljs-built_in">list</span>(path))<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(numbers)):<br>                path.append(numbers[i])<br>                self.dfs(numbers[i:], target - numbers[i])<br>                path.pop()<br>        <br>        dfs(candidates, target)<br>        <span class="hljs-keyword">return</span> res<br><br><span class="hljs-comment"># Method 2</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combinationSum</span>(<span class="hljs-params">self, candidates, target</span>):<br>        ret = []<br>        self.dfs(candidates, target, [], ret)<br>        <span class="hljs-keyword">return</span> ret<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self, nums, target, path, ret</span>):<br>        <span class="hljs-keyword">if</span> target &lt; <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> <br>        <span class="hljs-keyword">if</span> target == <span class="hljs-number">0</span>:<br>            ret.append(path)<br>            <span class="hljs-keyword">return</span> <br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            self.dfs(nums[i:], target-nums[i], path+[nums[i]], ret)<br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-40-Combination-Sum-II"><a href="#Leetcode-40-Combination-Sum-II" class="headerlink" title="Leetcode 40. Combination Sum II"></a>Leetcode 40. Combination Sum II</h4><ul>
+<li>Backtracking</li>
+<li>Sort first then for duplicated number only choose the first one to avoid duplicate combination</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combinationSum2</span>(<span class="hljs-params">self, candidates: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        ret = []<br>        self.dfs(<span class="hljs-built_in">sorted</span>(candidates),target,<span class="hljs-number">0</span>,[],ret)<br>        <span class="hljs-keyword">return</span> ret<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self, numbers, target, idx, path, res</span>):<br>        <span class="hljs-keyword">if</span> target &lt;= <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">if</span> target == <span class="hljs-number">0</span>:<br>                res.append(path)<br>            <span class="hljs-keyword">return</span><br>        <br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(idx, <span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-comment"># only pick the first number among duplciated numbers</span><br>            <span class="hljs-keyword">if</span> i &gt; idx <span class="hljs-keyword">and</span> numbers[i] == numbers[i-<span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">continue</span><br>            self.dfs(numbers, target-numbers[i],i+<span class="hljs-number">1</span>,path+[numbers[i]],res)<br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-77-Combinations"><a href="#Leetcode-77-Combinations" class="headerlink" title="Leetcode 77. Combinations"></a>Leetcode 77. Combinations</h4><ul>
+<li>Backtracking</li>
+<li>Time Complexity: O(Cn&#x2F;k)</li>
+<li>Space Complexity: O(Cn&#x2F;k)</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/combinations/discuss/1409224/Python-4-Approaches-Explained-%2B-Visualized">https://leetcode.com/problems/combinations/discuss/1409224/Python-4-Approaches-Explained-%2B-Visualized</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method 1</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combine</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        ret = []<br>        self.dfs(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)),[], k, ret)<br>        <span class="hljs-keyword">return</span> ret<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self,nums,path,k,res</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(<span class="hljs-built_in">list</span>(path)) == k:<br>            res.append(<span class="hljs-built_in">list</span>(path))<br>        <br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            self.dfs(nums[i+<span class="hljs-number">1</span>:],path+[nums[i]],k,res)<br><br><span class="hljs-comment"># Method 2</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combine</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        ret = []<br>        self.dfs(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>)),<span class="hljs-number">0</span>,[],ret,k)<br>        <span class="hljs-keyword">return</span> ret<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self,numbers,idx,path,res,k</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(path) == k:<br>            res.append(path)<br>        <br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(idx,<span class="hljs-built_in">len</span>(numbers)):<br>            self.dfs(numbers,i+<span class="hljs-number">1</span>,path+[numbers[i]],res,k)<br><br><br><span class="hljs-comment"># Method 3</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combine</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        result = []<br>        path = []<br>        self.dfs(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>)),<span class="hljs-number">0</span>,k,path,result)<br>        <span class="hljs-keyword">return</span> result<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self,nums,index,k,path,res</span>):<br>        <span class="hljs-keyword">if</span> k == <span class="hljs-number">0</span>:<br>            res.append(<span class="hljs-built_in">list</span>(path))<br>            <span class="hljs-keyword">return</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(index,<span class="hljs-built_in">len</span>(nums)):<br>            self.dfs(nums,i+<span class="hljs-number">1</span>,k-<span class="hljs-number">1</span>,path+[nums[i]],res)<br><br><span class="hljs-comment"># Method 4</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combine</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        result = []<br>        self.dfs(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>)),<span class="hljs-number">0</span>,[],result,k)<br>        <span class="hljs-keyword">return</span> result<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self,nums,start,path,res,k</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(path) == k:<br>            res.append(<span class="hljs-built_in">list</span>(path))<br>            <span class="hljs-keyword">return</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(start,<span class="hljs-built_in">len</span>(nums)):<br>            path.append(nums[i])<br>            self.dfs(nums,i+<span class="hljs-number">1</span>,path,res,k)<br>            path.pop()  <br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Leetcode-484-Find-Permutaion"><a href="#Leetcode-484-Find-Permutaion" class="headerlink" title="Leetcode 484 Find Permutaion"></a>Leetcode 484 Find Permutaion</h4><ul>
+<li>Very like leetcode 2375 </li>
+<li>Reverse the number when ‘I’ appears</li>
+<li>Greedy</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">findPermutation</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        stack = []<br>        res = []<br>        <span class="hljs-keyword">for</span> i,c <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s,<span class="hljs-number">1</span>):<br>            stack.append(i)<br>            <span class="hljs-keyword">if</span> c == <span class="hljs-string">&#x27;I&#x27;</span>:<br>                res += stack[::-<span class="hljs-number">1</span>]<br>                stack = []<br>        <br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/08/02/dfs/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;08&#x2F;02&#x2F;dfs&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;08&#x2F;02&#x2F;dfs&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/" rel="tag">dfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weekly-contest/" rel="tag">weekly-contest</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/08/06/biweekly-contest-84/"><i class="iconfont iconleft"></i>biweekly-contest-84</a>
+    <a href="/2022/07/31/bfs/">bfs<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

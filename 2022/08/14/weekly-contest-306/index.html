@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weekly-contest-306 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Leetcode 2375 Construct Sma...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">weekly-contest-306</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">weekly-contest-306</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 14, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3632</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="Leetcode-2375-Construct-Smallest-Number-From-DI-String"><a href="#Leetcode-2375-Construct-Smallest-Number-From-DI-String" class="headerlink" title="Leetcode 2375 Construct Smallest Number From DI String"></a>Leetcode 2375 Construct Smallest Number From DI String</h4><ul>
+<li>Backtracking Permutation</li>
+<li>Key words: each digit is used at most once</li>
+<li>Python library for permutation: from itertools import permutations</li>
+<li>for … else …<ul>
+<li>if loop ends beacuse of break, else will not execute</li>
+<li>if loop ends becasue of go through all iterations, else will execute</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method 1 Permutations</span><br><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> permutations<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">smallestNumber</span>(<span class="hljs-params">self, pattern: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        n = <span class="hljs-built_in">len</span>(pattern)<br>        <span class="hljs-keyword">for</span> tmp <span class="hljs-keyword">in</span> permutations(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">2</span>)), n+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n-<span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">if</span> pattern[i] == <span class="hljs-string">&#x27;I&#x27;</span>:<br>                    <span class="hljs-keyword">if</span> tmp[i] &gt; tmp[i+<span class="hljs-number">1</span>]:<br>                        <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">if</span> pattern[i] == <span class="hljs-string">&#x27;D&#x27;</span>:<br>                    <span class="hljs-keyword">if</span> tmp[i] &lt; tmp[i+<span class="hljs-number">1</span>]:<br>                        <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join([<span class="hljs-built_in">str</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> tmp])<br><br><br><span class="hljs-comment"># 自己写permutation（会超时）</span><br>        st = [<span class="hljs-literal">False</span>] * (n+<span class="hljs-number">1</span>)<br>        path = [<span class="hljs-literal">False</span>] * (n+<span class="hljs-number">1</span>)<br>        res = []<br>        <br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">u</span>):<br>            <span class="hljs-keyword">if</span> u == num_count:<br>                res.append(path[:])<br>            <br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_count):<br>                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> st[i]:<br>                    path[u] = i+<span class="hljs-number">1</span><br>                    st[i] = <span class="hljs-literal">True</span><br>                    dfs(u+<span class="hljs-number">1</span>)<br>                    st[i] = <span class="hljs-literal">False</span><br>        dfs(<span class="hljs-number">0</span>)<br><br><br><span class="hljs-comment"># Method 2 Greedy</span><br><br><span class="hljs-comment"># Intuition</span><br><span class="hljs-comment"># If we meet I,II,III...</span><br><span class="hljs-comment"># we can greedily pick the smallest numebr.</span><br><br><span class="hljs-comment"># If we meet D,</span><br><span class="hljs-comment"># we can pick second smallest and then pick the smallest,</span><br><span class="hljs-comment"># like 21.</span><br><br><span class="hljs-comment"># If we meet D,</span><br><span class="hljs-comment"># we can pick the third smallest, then the second smallest, then the smallest,</span><br><span class="hljs-comment"># like 321.</span><br><br><br><span class="hljs-comment"># Explanation</span><br><span class="hljs-comment"># 1 2 3 4 5 6 7 8 9</span><br><span class="hljs-comment"># D D I D D I D D</span><br><br><span class="hljs-comment"># Match the input string and the sequence 1,2,3,4,5,6,7,8,9.</span><br><span class="hljs-comment"># Reverse all numbers between &quot;I&quot;.</span><br><br><span class="hljs-comment"># For example:</span><br><span class="hljs-comment"># first &#x27;I&#x27; at 3, then reverse 1,2,3, we have 3,2,1</span><br><span class="hljs-comment"># second &#x27;I&#x27; at 6, then reverse 4,5,6, we have 6,5,4</span><br><span class="hljs-comment"># Reverse the last group 7,8,9, we have 9,8,7</span><br><br><span class="hljs-comment"># Final result for D D I D D I D D,</span><br><span class="hljs-comment"># is 3,2,1,6,5,4,9,8,7</span><br><br><span class="hljs-comment"># Complexity</span><br><span class="hljs-comment"># Time O(n)</span><br><span class="hljs-comment"># Space O(n)</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">smallestNumber</span>(<span class="hljs-params">self, s</span>):<br>        res, stack = [], []<br>        <span class="hljs-keyword">for</span> i,c <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s + <span class="hljs-string">&#x27;I&#x27;</span>, <span class="hljs-number">1</span>):<br>            stack.append(<span class="hljs-built_in">str</span>(i))<br>            <span class="hljs-keyword">if</span> c == <span class="hljs-string">&#x27;I&#x27;</span>:<br>                res += stack[::-<span class="hljs-number">1</span>]<br>                stack = []<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(res)<br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-2376-Count-Special-Integers"><a href="#Leetcode-2376-Count-Special-Integers" class="headerlink" title="Leetcode 2376 Count Special Integers"></a>Leetcode 2376 Count Special Integers</h4><ul>
+<li>Permutataions order matters: You have n items and want to find the number of ways k items can be ordered<ul>
+<li>A(n,k) &#x3D; n!&#x2F;(n-k)!</li>
+<li>from itertools import permutations</li>
+</ul>
+</li>
+<li>Combinations order does not matter: number of ways to combine k items from a set of n<ul>
+<li>C(n,k) &#x3D; A(n,k)&#x2F;k! &#x3D; n!&#x2F;((n-k)! * k!)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">countSpecialNumbers</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        s = <span class="hljs-built_in">str</span>(n)<br>        l = <span class="hljs-built_in">len</span>(s)<br>        cnt = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>][l == <span class="hljs-built_in">len</span>(<span class="hljs-built_in">set</span>(s))]<br>        <br>        <span class="hljs-comment"># Check the possible number with length &lt; length of n (All are valid)</span><br>        <span class="hljs-comment"># total count minus the count start with 0 (Not a valid number)</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,l):<br>            cnt += perm(<span class="hljs-number">10</span>,i) - perm(<span class="hljs-number">9</span>,i-<span class="hljs-number">1</span>)<br>        <br>        <span class="hljs-comment"># Check the possible number with the same length as n</span><br>        st = [<span class="hljs-number">0</span>]*<span class="hljs-number">10</span><br>        acc = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> index, i <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">if</span> index == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>, <span class="hljs-built_in">int</span>(i)):<br>                <span class="hljs-keyword">if</span> st[j]: <span class="hljs-keyword">continue</span><br>                acc += <span class="hljs-number">1</span><br>                cnt += perm(<span class="hljs-number">10</span>-acc,l-acc)<br>                acc -= <span class="hljs-number">1</span><br>            acc += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> st[<span class="hljs-built_in">int</span>(i)]: <span class="hljs-keyword">break</span><br>            st[<span class="hljs-built_in">int</span>(i)] = <span class="hljs-number">1</span><br>        <br>        <span class="hljs-keyword">return</span> cnt<br></code></pre></td></tr></table></figure>
+
+
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/08/14/weekly-contest-306/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;08&#x2F;14&#x2F;weekly-contest-306&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;08&#x2F;14&#x2F;weekly-contest-306&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weekly-contest/" rel="tag">weekly-contest</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/08/27/weekly-contest/"><i class="iconfont iconleft"></i>weekly-contest</a>
+    <a href="/2022/08/06/weekly-contest-305/">weekly-contest-305<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

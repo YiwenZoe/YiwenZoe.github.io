@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trees - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="226. Invert Binary TreeDFS
+...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Trees</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Trees</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 21, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>18055</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="226-Invert-Binary-Tree"><a href="#226-Invert-Binary-Tree" class="headerlink" title="226. Invert Binary Tree"></a>226. Invert Binary Tree</h4><p>DFS</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">invertTree</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">Optional</span>[TreeNode]:<br>        self.dfs(root)<br>        <span class="hljs-keyword">return</span> root<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">self,root</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>        left = root.left<br>        right = root.right<br>        root.left = right<br>        root.right = left<br>        <span class="hljs-keyword">if</span> root.left: self.dfs(root.left)<br>        <span class="hljs-keyword">if</span> root.right: self.dfs(root.right)<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="104-Maximum-Depth-of-Bianry-Tree"><a href="#104-Maximum-Depth-of-Bianry-Tree" class="headerlink" title="104. Maximum Depth of Bianry Tree"></a>104. Maximum Depth of Bianry Tree</h4><ul>
+<li>DFS</li>
+<li>Stack 用stack回溯</li>
+<li>BFS<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method1 RECURSIVE DFS</span><br><br><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(self.maxDepth(root.left), self.maxDepth(root.right))<br><br><span class="hljs-comment"># Method2 ITERATIVE DFS</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        stack = [[root, <span class="hljs-number">1</span>]]<br>        res = <span class="hljs-number">0</span><br>        <br>        <span class="hljs-keyword">while</span> stack:<br>            node, depth = stack.pop()<br>            <br>            <span class="hljs-keyword">if</span> node:<br>                res = res = <span class="hljs-built_in">max</span>(res, depth)<br>                stack.append([node.left, depth + <span class="hljs-number">1</span>])<br>                stack.append([node.right, depth + <span class="hljs-number">1</span>])<br>        <span class="hljs-keyword">return</span> res<br><br><span class="hljs-comment"># METHOD3 BFS</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <br>        queue = deque([root])<br>        level = <span class="hljs-number">0</span><br>        <br>        <span class="hljs-keyword">while</span> queue:<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(queue)):<br>                node = queue.popleft()<br>                <span class="hljs-keyword">if</span> node.left:<br>                    queue.append(node.left)<br>                <span class="hljs-keyword">if</span> node.right:<br>                    queue.append(node.right)<br>            level += <span class="hljs-number">1</span><br>        <br>        <span class="hljs-keyword">return</span> level<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="543-Diameter-of-Binary-Tree"><a href="#543-Diameter-of-Binary-Tree" class="headerlink" title="543. Diameter of Binary Tree"></a>543. Diameter of Binary Tree</h4><ul>
+<li>Set a global variable ans</li>
+<li>DFS to get the maximum depth of each node</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeNode</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, val=<span class="hljs-number">0</span>, left = <span class="hljs-literal">None</span>, right = <span class="hljs-literal">None</span></span>):<br>        self.val = val<br>        self.left = left<br>        self.right = right<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">diameterOfBinaryTree</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        ans = <span class="hljs-number">0</span><br>        <br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">root</span>):<br>            <span class="hljs-keyword">nonlocal</span> ans<br>            <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>            left = dfs(root.left)<br>            right = dfs(root.right)<br>            ans = <span class="hljs-built_in">max</span>(ans, left + right)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(left, right)<br>        <br>        dfs(root)<br>        <span class="hljs-keyword">return</span> ans <br></code></pre></td></tr></table></figure>
+
+<h4 id="572-Subtree-of-Another-Tree"><a href="#572-Subtree-of-Another-Tree" class="headerlink" title="572. Subtree of Another Tree"></a>572. Subtree of Another Tree</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isSubtree</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode], subRoot: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">p,q</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> p <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> q:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">if</span> p <span class="hljs-keyword">and</span> q <span class="hljs-keyword">and</span> p.val == q.val:<br>                <span class="hljs-keyword">if</span> dfs(p.left, q.left) <span class="hljs-keyword">and</span> dfs(p.right, q.right):<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> subRoot:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <br>        <span class="hljs-keyword">if</span> dfs(root, subRoot):<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">return</span> self.isSubtree(root.left, subRoot) <span class="hljs-keyword">or</span> self.isSubtree(root.right, subRoot)<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Lintcode-88-Lowest-Common-Ancestor"><a href="#Lintcode-88-Lowest-Common-Ancestor" class="headerlink" title="Lintcode 88. Lowest Common Ancestor"></a>Lintcode 88. Lowest Common Ancestor</h4><p>给定二叉树的根节点和两个子节点，找到两个节点的最近公共父节点(LCA)。最近公共祖先是两个节点的公共的祖先节点且具有最大深度。<br>假设给出的两个节点都在树中存在.</p>
+<ul>
+<li>Backtracking, 最后返回root对应的LCA</li>
+<li>对于一个root<ul>
+<li>如果A,B都在 –&gt; return Root</li>
+<li>如果只有A在 –&gt; return A</li>
+<li>如果只有B在 –&gt; return B</li>
+<li>如果A,B都不在 –&gt; return None</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">Definition of TreeNode:</span><br><span class="hljs-string">class TreeNode:</span><br><span class="hljs-string">    def __init__(self, val):</span><br><span class="hljs-string">        self.val = val</span><br><span class="hljs-string">        self.left, self.right = None, None</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    @param: root: The root of the binary search tree.</span><br><span class="hljs-string">    @param: A: A TreeNode in a Binary.</span><br><span class="hljs-string">    @param: B: A TreeNode in a Binary.</span><br><span class="hljs-string">    @return: Return the lowest common ancestor(LCA) of the two nodes.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">lowestCommonAncestor</span>(<span class="hljs-params">self, root, A, B</span>):<br>        <span class="hljs-comment"># 如果 A 和 B 都在，return  LCA</span><br>        <span class="hljs-comment"># 如果只有 A 在，return A</span><br>        <span class="hljs-comment"># 如果只有 B 在，return B</span><br>        <span class="hljs-comment"># 如果 A, B 都不在，return None</span><br>        <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>        <br>        <span class="hljs-keyword">if</span> root == A <span class="hljs-keyword">or</span> root == B:<br>            <span class="hljs-keyword">return</span> root<br>        <br>        left_result = self.lowestCommonAncestor(root.left, A, B)<br>        right_result = self.lowestCommonAncestor(root.right, A, B)<br>        <br>        <span class="hljs-comment"># A 和 B 一边一个</span><br>        <span class="hljs-keyword">if</span> left_result <span class="hljs-keyword">and</span> right_result: <br>            <span class="hljs-keyword">return</span> root<br>        <br>        <span class="hljs-comment"># 左子树有一个点或者左子树有LCA</span><br>        <span class="hljs-keyword">if</span> left_result:<br>            <span class="hljs-keyword">return</span> left_result<br>        <br>        <span class="hljs-comment"># 右子树有一个点或者右子树有LCA</span><br>        <span class="hljs-keyword">if</span> right_result:<br>            <span class="hljs-keyword">return</span> right_result<br>        <br>        <span class="hljs-comment"># 左右子树啥都没有</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree"><a href="#235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="headerlink" title="235. Lowest Common Ancestor of a Binary Search Tree"></a>235. Lowest Common Ancestor of a Binary Search Tree</h4><p>Method1 DFS<br>解题思路<br>这道题与88. 最近公共祖先相似，都是求树内两个节点的最近公共祖先（LCA），我们本题也继续采用深度优先搜索（DFS）的方法。<br>不同的是，这道题明确指出这是二叉搜索树（BST），我们复习一下BST的性质：<br>对任意节点N，左子树上的所有节点的值都小于等于节点N的值<br>对任意节点N，右子树上的所有节点的值都大于等于节点N的值<br>BST的左子树和右子树也都是 BST<br>我们如果在搜索时充分利用BST的性质，就能够有效剪枝。<br>算法流程<br>从根节点root开始，遍历整棵树<br>如果root等于p或q，那么root即为p和q的LCA。<br>如果root同时大于p和q，说明p和q 都在左子树上，那么将root.left作为根节点，继续第一步的操作。<br>如果root同时小于p和q，说明p和q 都在右子树上，那么将root.right作为根节点，继续第一步的操作。<br>如果以上情况都不成立，说明p和q分别在两颗子树上，那么root就是p和q的LCA。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">Definition of TreeNode:</span><br><span class="hljs-string">class TreeNode:</span><br><span class="hljs-string">    def __init__(self, val):</span><br><span class="hljs-string">        self.val = val</span><br><span class="hljs-string">        self.left, self.right = None, None</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    @param root: root of the tree</span><br><span class="hljs-string">    @param p: the node p</span><br><span class="hljs-string">    @param q: the node q</span><br><span class="hljs-string">    @return: find the LCA of p and q</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">lowestCommonAncestor</span>(<span class="hljs-params">self, root, p, q</span>):<br>    	<span class="hljs-comment"># root 等于 p或q</span><br>        <span class="hljs-keyword">if</span> root == p <span class="hljs-keyword">or</span> root == q:<br>            <span class="hljs-keyword">return</span> root<br>        <span class="hljs-comment"># p, q 都在左子树</span><br>        <span class="hljs-keyword">if</span> p.val &lt; root.val <span class="hljs-keyword">and</span> q.val &lt; root.val:<br>            <span class="hljs-keyword">return</span> self.lowestCommonAncestor(root.left, p, q)<br>        <span class="hljs-comment"># p, q 都在右子树</span><br>        <span class="hljs-keyword">if</span> p.val &gt; root.val <span class="hljs-keyword">and</span> q.val &gt; root.val:<br>            <span class="hljs-keyword">return</span> self.lowestCommonAncestor(root.right, p, q)<br>        <span class="hljs-comment"># p, q 分别在左右子树，那么root即为结果</span><br>        <span class="hljs-keyword">return</span> root<br></code></pre></td></tr></table></figure>
+
+<p>Method2<br>不用递归，直接while loop一直往下寻找p和q 如果root的值比p和q都小，那往右子树走， 如果root的值比p和q都大，那往左子树走，<br>直到找到以上两种都不是时，说明p和q分别在当前root的两边， 一边一个，当前root就是LCA<br>Complexity:</p>
+<p>Time: O(H), where H is the heigh of Binary Tree.<br>Space: O(1)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    @param root: root of the tree</span><br><span class="hljs-string">    @param p: the node p</span><br><span class="hljs-string">    @param q: the node q</span><br><span class="hljs-string">    @return: find the LCA of p and q</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">lowestCommonAncestor</span>(<span class="hljs-params">self, root, p, q</span>):<br>        <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">or</span> root == p <span class="hljs-keyword">or</span> root == q:<br>            <span class="hljs-keyword">return</span> root<br>            <br>        <span class="hljs-keyword">while</span> root:<br>            <span class="hljs-keyword">if</span> root.val &gt; p.val <span class="hljs-keyword">and</span> root.val &gt; q.val:<br>                root = root.left<br>            <span class="hljs-keyword">elif</span> root.val &lt; p.val <span class="hljs-keyword">and</span> root.val &lt; q.val:<br>                root = root.right<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> root<br>            <br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="1448-Count-Good-Nodes-in-Binary-Tree"><a href="#1448-Count-Good-Nodes-in-Binary-Tree" class="headerlink" title="1448. Count Good Nodes in Binary Tree"></a>1448. Count Good Nodes in Binary Tree</h4><p>Just dfs from the root down to its descendant nodes and keep maxSoFar.<br>If the value of current node &gt;&#x3D; maxSofar then we increase count by one since it’s a good node.</p>
+<p>Time: O(N), where N is the number of nodes in the binary tree.<br>Space: O(H), where H is the height of binary tree.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">goodNodes</span>(<span class="hljs-params">self, root: TreeNode</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">root, maxSoFar</span>):<br>            <span class="hljs-keyword">nonlocal</span> ans<br>            <span class="hljs-keyword">if</span> root == <span class="hljs-literal">None</span>: <span class="hljs-keyword">return</span><br>            <span class="hljs-keyword">if</span> maxSoFar &lt;= root.val:<br>                ans += <span class="hljs-number">1</span><br>            maxSoFar = <span class="hljs-built_in">max</span>(maxSoFar, root.val)<br>            dfs(root.left, maxSoFar)<br>            dfs(root.right, maxSoFar)<br><br>        ans = <span class="hljs-number">0</span><br>        dfs(root, root.val)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="98-Validate-Binary-Search-Tree"><a href="#98-Validate-Binary-Search-Tree" class="headerlink" title="98. Validate Binary Search Tree"></a>98. Validate Binary Search Tree</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">isValidBST</span>(<span class="hljs-params">self, root, left = <span class="hljs-built_in">float</span>(<span class="hljs-params"><span class="hljs-string">&#x27;-inf&#x27;</span></span>), right = <span class="hljs-built_in">float</span>(<span class="hljs-params"><span class="hljs-string">&#x27;inf&#x27;</span></span>)</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">not</span> root <span class="hljs-keyword">or</span> left &lt; root.val &lt; right <span class="hljs-keyword">and</span> \<br>            self.isValidBST(root.left, left, root.val) <span class="hljs-keyword">and</span> \<br>            self.isValidBST(root.right, root.val, right)<br></code></pre></td></tr></table></figure>
+
+
+<p>One solution would be to check every parent as we work down the tree but it creates a lot of complicated logic. So why don’t we check every child on the way up! All we have to do is keep track of the mininum and maximum valid values on the way down.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">isValidBST</span>(<span class="hljs-params">self, root</span>):<br>    <span class="hljs-keyword">return</span> check_bst(root, <span class="hljs-built_in">float</span>(<span class="hljs-string">&quot;-inf&quot;</span>), <span class="hljs-built_in">float</span>(<span class="hljs-string">&quot;inf&quot;</span>))<br>	<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_bst</span>(<span class="hljs-params">self, node, left, right</span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> left &lt; node.val &lt; right:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">return</span> (check_bst(node.left, left, node.val)<br>            <span class="hljs-keyword">and</span> check_bst(node.right, node.val, right))<br></code></pre></td></tr></table></figure>
+
+<p>Inorder(left, root, right)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a  binary tree node</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, x):</span><br><span class="hljs-comment">#         self.val = x</span><br><span class="hljs-comment">#         self.left = None</span><br><span class="hljs-comment">#         self.right = None</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-comment"># @param root, a tree node</span><br>    <span class="hljs-comment"># @return a boolean</span><br>    <span class="hljs-comment"># 7:38</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isValidBST</span>(<span class="hljs-params">self, root</span>):<br>        output = []<br>        self.inOrder(root, output)<br>        <br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(output)):<br>            <span class="hljs-keyword">if</span> output[i-<span class="hljs-number">1</span>] &gt;= output[i]:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">inOrder</span>(<span class="hljs-params">self, root, output</span>):<br>        <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span><br>        <br>        self.inOrder(root.left, output)<br>        output.append(root.val)<br>        self.inOrder(root.right, output)<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="230-Kth-Smallest-Element-in-a-BST"><a href="#230-Kth-Smallest-Element-in-a-BST" class="headerlink" title="230. Kth Smallest Element in a BST"></a>230. Kth Smallest Element in a BST</h4><ul>
+<li>Recursion</li>
+<li>Inorder Traverse(LEFT-ROOT-RIGHT) for BST tree –&gt; smallest –&gt; largest</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">kthSmallest</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">root, output</span>):<br>            <span class="hljs-keyword">if</span> root <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>                <span class="hljs-keyword">return</span><br>            <br>            dfs(root.left)<br>            output.append(root.val)<br>            dfs(root.right)<br>            <span class="hljs-keyword">return</span> output<br>        <br>        output = []<br>        dfs(root, output)<br>        <span class="hljs-keyword">return</span> output[k-<span class="hljs-number">1</span>]<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Iterative</li>
+<li>Stack</li>
+<li>一直往左走走到底，然后往右走一个node，再往左走到底. 每次往左走到底结束，pop一个数，k-&#x3D;1. 直到 k&#x3D; 0<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">kthSmallest</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        stack = []<br>        curr = root<br><br>        <span class="hljs-keyword">while</span> stack <span class="hljs-keyword">or</span> curr:<br>            <span class="hljs-keyword">while</span> curr:<br>                stack.append(curr.val)<br>                curr = curr.left<br>            <br>            curr = stack.pop()<br>            k -= <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> k == <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> curr.val<br>            <br>            curr = curr.right<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal"><a href="#105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal" class="headerlink" title="105. Construct Binary Tree from Preorder and Inorder Traversal"></a>105. Construct Binary Tree from Preorder and Inorder Traversal</h4><p>前序的第一个为根，在中序中找到根的位置。 中序中根的左右两边即为左右子树的中序遍历。同时可知左子树的大小size-left。<br>前序中根接下来的size-left个是左子树的前序遍历。 由此可以递归处理左右子树。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">Definition of TreeNode:</span><br><span class="hljs-string">class TreeNode:</span><br><span class="hljs-string">    def __init__(self, val):</span><br><span class="hljs-string">        this.val = val</span><br><span class="hljs-string">        this.left, this.right = None, None</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    @param preorder : A list of integers that preorder traversal of a tree</span><br><span class="hljs-string">    @param inorder : A list of integers that inorder traversal of a tree</span><br><span class="hljs-string">    @return : Root of a tree</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">buildTree</span>(<span class="hljs-params">self, preorder, inorder</span>):<br>        <span class="hljs-comment"># write your code here</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> preorder <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> inorder:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>        root = TreeNode(preorder[<span class="hljs-number">0</span>])<br>        rootPos = inorder.index(preorder[<span class="hljs-number">0</span>])<br>        root.left = self.buildTree(preorder[<span class="hljs-number">1</span> : <span class="hljs-number">1</span> + rootPos], inorder[ : rootPos])<br>        root.right = self.buildTree(preorder[rootPos + <span class="hljs-number">1</span> : ], inorder[rootPos + <span class="hljs-number">1</span> : ])<br>        <span class="hljs-keyword">return</span> root<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="124-Binary-Tree-Maximum-Path-Sum"><a href="#124-Binary-Tree-Maximum-Path-Sum" class="headerlink" title="124. Binary Tree Maximum Path Sum"></a>124. Binary Tree Maximum Path Sum</h4><ul>
+<li>max_path 是全局path sum最大值</li>
+<li>get_max_gain是返回经过node的path的并且需要可以经过node的parent的path的最大值（左右里面挑最大的gain)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxPathSum</span>(<span class="hljs-params">self, root: TreeNode</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        max_path = <span class="hljs-built_in">float</span>(<span class="hljs-string">&quot;-inf&quot;</span>) <span class="hljs-comment"># placeholder to be updated</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_max_gain</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-keyword">nonlocal</span> max_path <span class="hljs-comment"># This tells that max_path is not a local variable</span><br>            <span class="hljs-keyword">if</span> node <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>            gain_on_left = <span class="hljs-built_in">max</span>(get_max_gain(node.left), <span class="hljs-number">0</span>) <span class="hljs-comment"># Read the part important observations</span><br>            gain_on_right = <span class="hljs-built_in">max</span>(get_max_gain(node.right), <span class="hljs-number">0</span>)  <span class="hljs-comment"># Read the part important observations</span><br>            <br>            <span class="hljs-comment"># current_max_path 经过node的最大path值</span><br>            current_max_path = node.val + gain_on_left + gain_on_right <span class="hljs-comment"># Read first three images of going down the recursion stack</span><br>            max_path = <span class="hljs-built_in">max</span>(max_path, current_max_path) <span class="hljs-comment"># Read first three images of going down the recursion stack			</span><br>            <span class="hljs-keyword">return</span> node.val + <span class="hljs-built_in">max</span>(gain_on_left, gain_on_right) <span class="hljs-comment"># Read the last image of going down the recursion stack</span><br> 			<br>        get_max_gain(root) <span class="hljs-comment"># Starts the recursion chain</span><br>        <span class="hljs-keyword">return</span> max_path	<br></code></pre></td></tr></table></figure>
+
+<h4 id="297-Serialize-and-Deserialize-Binary-Tree"><a href="#297-Serialize-and-Deserialize-Binary-Tree" class="headerlink" title="297. Serialize and Deserialize Binary Tree"></a>297. Serialize and Deserialize Binary Tree</h4><ul>
+<li><p>BFS</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode(object):</span><br><span class="hljs-comment">#     def __init__(self, x):</span><br><span class="hljs-comment">#         self.val = x</span><br><span class="hljs-comment">#         self.left = None</span><br><span class="hljs-comment">#         self.right = None</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Codec</span>:<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">serialize</span>(<span class="hljs-params">self, root</span>):<br>        <span class="hljs-keyword">if</span> root == <span class="hljs-literal">None</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;#&quot;</span><br>        bfs = deque([root])<br>        ans = []<br>        <span class="hljs-keyword">while</span> bfs:<br>            curr = bfs.popleft()<br>            <span class="hljs-keyword">if</span> curr == <span class="hljs-literal">None</span>:<br>                ans.append(<span class="hljs-string">&quot;#&quot;</span>)<br>            <span class="hljs-keyword">else</span>:<br>                ans.append(<span class="hljs-built_in">str</span>(curr.val))<br>                bfs.append(curr.left)<br>                bfs.append(curr.right)<br>        <span class="hljs-built_in">print</span>(ans)<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;,&quot;</span>.join(ans)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deserialize</span>(<span class="hljs-params">self, data</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;Decodes your encoded data to tree.</span><br><span class="hljs-string">        </span><br><span class="hljs-string">        :type data: str</span><br><span class="hljs-string">        :rtype: TreeNode</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">createNode</span>(<span class="hljs-params">strVal</span>):<br>            <span class="hljs-keyword">if</span> strVal == <span class="hljs-string">&quot;#&quot;</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>            <span class="hljs-keyword">return</span> TreeNode(<span class="hljs-built_in">int</span>(strVal))<br><br>        <span class="hljs-keyword">if</span> data == <span class="hljs-string">&quot;#&quot;</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>        strs = data.split(<span class="hljs-string">&quot;,&quot;</span>)<br>        root = createNode(strs[<span class="hljs-number">0</span>])<br>        i = <span class="hljs-number">1</span><br>        bfs = deque([root])<br>        <span class="hljs-keyword">while</span> bfs:<br>            curr = bfs.popleft()<br>            curr.left = createNode(strs[i])<br>            curr.right = createNode(strs[i+<span class="hljs-number">1</span>])<br>            i += <span class="hljs-number">2</span><br><br>            <span class="hljs-keyword">if</span> curr.left != <span class="hljs-literal">None</span>:<br>                bfs.append(curr.left)<br>            <span class="hljs-keyword">if</span> curr.right != <span class="hljs-literal">None</span>:<br>                bfs.append(curr.right)<br><br>        <span class="hljs-keyword">return</span> root<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>DFS</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Codec</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">serialize</span>(<span class="hljs-params">self, root</span>):<br>        <span class="hljs-keyword">if</span> root == <span class="hljs-literal">None</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;#&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>(root.val) + <span class="hljs-string">&quot;,&quot;</span> + self.serialize(root.left) + <span class="hljs-string">&quot;,&quot;</span> + self.serialize(root.right);<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deserialize</span>(<span class="hljs-params">self, data</span>):<br>        nodes = data.split(<span class="hljs-string">&quot;,&quot;</span>)<br>        self.i = <span class="hljs-number">0</span><br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>():<br>            <span class="hljs-keyword">if</span> self.i == <span class="hljs-built_in">len</span>(nodes): <br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>            nodeVal = nodes[self.i]<br>            self.i += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> nodeVal == <span class="hljs-string">&quot;#&quot;</span>: <br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>            <br>            root = TreeNode(<span class="hljs-built_in">int</span>(nodeVal))<br>            root.left = dfs()<br>            root.right = dfs()<br>            <span class="hljs-keyword">return</span> root<br><br>        <span class="hljs-keyword">return</span> dfs()<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="208-Implement-Trie-Prefix-Tree"><a href="#208-Implement-Trie-Prefix-Tree" class="headerlink" title="208. Implement Trie (Prefix Tree)"></a>208. Implement Trie (Prefix Tree)</h4><ul>
+<li><p>Implement TrieNode class which should include two attributes</p>
+<ul>
+<li>self.child: child of the node which is a set includes all the edges connected to the node<ul>
+<li>{value of the child node : TrieNode()}</li>
+</ul>
+</li>
+<li>self.isl: boolean variable indicates whether a node is a leaf node or not</li>
+</ul>
+</li>
+<li><p>Notice: if a child node of a character already exist, then we should not create a new child node for that character.</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TrieNode</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.child = &#123;&#125;<br>        self.isl = <span class="hljs-literal">False</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Trie</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.root = TrieNode()<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">insert</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>        node = self.root<br>        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> word:<br>            <span class="hljs-keyword">if</span> l <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> node.child:<br>                node.child[l] = TrieNode()<br>            node = node.child[l]<br>        node.isl = <span class="hljs-literal">True</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        node = self.root<br>        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> word:<br>            <span class="hljs-keyword">if</span> l <span class="hljs-keyword">in</span> node.child:<br>                node = node.child[l]<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">return</span> node.isl<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">startsWith</span>(<span class="hljs-params">self, prefix: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        node = self.root<br>        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> prefix:<br>            <span class="hljs-keyword">if</span> l <span class="hljs-keyword">in</span> node.child:<br>                node = node.child<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+
+<h4 id="211-Design-Add-and-Search-Words-Data-Structure"><a href="#211-Design-Add-and-Search-Words-Data-Structure" class="headerlink" title="211. Design Add and Search Words Data Structure"></a>211. Design Add and Search Words Data Structure</h4><ul>
+<li>Similar as 208</li>
+<li>DFS to find the matched the word</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TrieNode</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.child = &#123;&#125;<br>        self.isl = <span class="hljs-literal">False</span><br>    <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">WordDictionary</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.root = TrieNode()<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">addWord</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>         node = self.root<br>        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> word:<br>            <span class="hljs-keyword">if</span> l <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> node.child:<br>                node.child[l] = Trienode()<br>            node = node.child[l]<br>        node.isl = <span class="hljs-literal">True</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># i is the index of the word we are trying to match</span><br>        <span class="hljs-comment"># node is the node we are trying to match with the word</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node, i</span>):<br>            <span class="hljs-comment"># Successfully matched the last character in word</span><br>            <span class="hljs-comment"># Only need to check if the node is the leaf node</span><br>            <span class="hljs-keyword">if</span> i == <span class="hljs-built_in">len</span>(word):<br>                <span class="hljs-keyword">return</span> node.isl<br>            <br>            <span class="hljs-keyword">if</span> word[i] == <span class="hljs-string">&#x27;.&#x27;</span>:<br>                <span class="hljs-comment"># Iterate all the child nodes</span><br>                <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> node.child:<br>                    node = node.child[v]<br>                    <span class="hljs-keyword">if</span> dfs(node, i+<span class="hljs-number">1</span>): <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <br>            <span class="hljs-keyword">if</span> word[i] <span class="hljs-keyword">in</span> node.child:<br>                <span class="hljs-keyword">return</span> dfs(node.child[word[i]], i+<span class="hljs-number">1</span>)           <br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <br>        <span class="hljs-keyword">return</span> dfs(self.root, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/10/21/Trees/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;10&#x2F;21&#x2F;Trees&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;10&#x2F;21&#x2F;Trees&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trees/" rel="tag">Trees</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/10/22/weekly-contest-316/"><i class="iconfont iconleft"></i>weekly-contest-316</a>
+    <a href="/2022/10/15/weekly-contest-315/">weekly-contest-315<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

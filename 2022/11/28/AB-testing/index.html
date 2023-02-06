@@ -1,0 +1,752 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AB-testing - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="
+What is A&#x2F;B testing?A...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">AB-testing</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">AB-testing</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 28, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>10453</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <ol>
+<li>What is A&#x2F;B testing?<br>AB testing<br>An A&#x2F;B test is an experiment</li>
+</ol>
+<ul>
+<li>All elements are constant</li>
+<li>Except for one variable</li>
+<li>used in industry to make decisions</li>
+</ul>
+<p>Tipically it compares a control group and a treatment group.<br>All variables are identical between two groups except for a factor that’s being tested.</p>
+<p>Variants: </p>
+<ul>
+<li>2 variants:  A&#x2F;B test</li>
+<li>more than 2 variants: A&#x2F;B&#x2F;N test</li>
+</ul>
+<p>Appear frequently in Data Science Interview</p>
+<ul>
+<li>Typically asked together with metrics problems</li>
+<li>Can include any A&#x2F;B testing components<ul>
+<li>Developing new hypothesis</li>
+<li>Designing A&#x2F;B tests</li>
+<li>Evaluating results</li>
+<li>Making decisions</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Why run A&#x2F;B test?<br>Goal: Make data driven decisions<br>When results are reliable and repeatable</li>
+</ol>
+<p>Make results reproducible<br>Change to product -&gt; Change to metrics<br>Example:<br>Change to colors -&gt; Change to engagement<br>Others stay the same</p>
+<p>Designing an A&#x2F;B test<br>3. How long to run an A&#x2F;B test?<br>2.1 Determine the sample size</p>
+<ul>
+<li>Type II error or Power</li>
+<li>Significance level</li>
+<li>Minimum detectable effect</li>
+</ul>
+<p>sample size &#x3D; 16 * variance &#x2F; (effect size)**2</p>
+<ul>
+<li>More samples if variance is larger</li>
+<li>Less samples if effect size is larger</li>
+</ul>
+<p>How to estimate parameters?</p>
+<ul>
+<li><p>sample variance is obtained from data</p>
+</li>
+<li><p>How to estimate sample difference(effect size)?</p>
+<ul>
+<li>We don’t know before experiments</li>
+<li>Use minimum detectable effect</li>
+</ul>
+<p>  Minimum detecable effect</p>
+<ul>
+<li>The smallest different matters in practice</li>
+<li>Eg. 0.1% increase in recenue</li>
+<li>Decided by multiple stakeholders</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>Multiple testing problem<br>Test multiple variants of a feature</li>
+</ol>
+<ul>
+<li>colors</li>
+<li>Homepage design</li>
+</ul>
+<p>Sample questions:</p>
+<ul>
+<li><p>10 tests are running with different landing page</p>
+</li>
+<li><p>1 case won and p value &lt; 0.05</p>
+</li>
+<li><p>Shoud you make the change? - NO</p>
+</li>
+<li><p>Should not use the same significance level</p>
+</li>
+<li><p>Probability of false discovery increases</p>
+</li>
+</ul>
+<p>Eg. There are 3 groups, what is the chance of at least one false positive?<br>Pr(no false positive) &#x3D; (1-0.05)^3 &#x3D; 0.95^3<br>Pr(at least 1 false positive) &#x3D; 1 - Pr(no false positive) &#x3D; 0.143</p>
+<ul>
+<li>Type I error over 14%</li>
+</ul>
+<p>Solutions:</p>
+<p>4.1 Bonferroni correction</p>
+<ul>
+<li>Significance level&#x2F;number of tests<br>This method is too conservertive</li>
+</ul>
+<p>4.2 Control False Discovery Rate(FDR) ?<br>FDR &#x3D; E[false positives&#x2F;rejections]<br>The expected value of number of false positives divided by number of rejections.<br>It measures out of all the rejections of the null hypothesis that is all the metrics<br>that you declare to have a statistically significant difference how many of them have<br>a real difference as opposed to how many were flase positives.</p>
+<p>This only makes sense when you have a huge number of metrics.</p>
+<p>4.3 FDR(False discovery rate) Adjustment<br>Benjamin – Hochberg Adjustment</p>
+<ol>
+<li><p>Rank p-values 𝑃 from low to high</p>
+</li>
+<li><p>Find the largest k such that 𝑃 ≤ 𝐾&#x2F;n ∗ 𝛼</p>
+</li>
+<li><p>Reject experiments 1,2,..,k. Accept experiment k+1, …, n.</p>
+</li>
+<li><p>Novelty and primacy effect</p>
+</li>
+</ol>
+<p>5.1 Primacy effect(change aversion)</p>
+<ul>
+<li>People are reluctant to change</li>
+</ul>
+<p>5.2 Novelty effect</p>
+<ul>
+<li>People welcome the changes and use more</li>
+</ul>
+<p>Effect will NOT last long. Repeat usage declined when effect wears off.</p>
+<p>How to deal with them<br>5.3 Rule out the possibility</p>
+<ul>
+<li>Run the test only on first time users</li>
+</ul>
+<p>5.4 If test is already running</p>
+<ul>
+<li>Compare first time users to old users in treatment group</li>
+<li>If new feature has no impact on new users but only performers better in old users. That’s a sign of novelty effect.</li>
+</ul>
+<ol start="6">
+<li>Interference between variants<br>Typical design:</li>
+</ol>
+<ul>
+<li>Split users randomly</li>
+<li>Users are independent</li>
+</ul>
+<p>Cases when assumption fails:</p>
+<ul>
+<li>Social network: Eg. Facebook, Linkedin, Twitter</li>
+<li>Two-sided markets: Eg. Uber, Lyft, Airbnb</li>
+</ul>
+<p>6.1 Network effect:<br>Users tend to use a feature or product more ofthen if their friends use it.</p>
+<ul>
+<li>User behaviors are impacted by others</li>
+<li>The effect can spillover the control group</li>
+<li>The difference underestimates the treatment effect</li>
+<li>Actual effect &gt; treatment effect</li>
+</ul>
+<p>6.2 Two-sided markets:</p>
+<ul>
+<li>Eg. Uber, Lyft, Airbnb</li>
+<li>Resources are shared among control and treatment group which caused compete in control and treatment group.</li>
+<li>Actual effect &lt; treatment effect</li>
+</ul>
+<ol start="7">
+<li>Dealing with interference<br>Sample questions:</li>
+</ol>
+<ul>
+<li>A new feature provides coupons to our riders</li>
+<li>Goal: increase rides by decreasing price</li>
+<li>Testing strategy: evaluate the effect of the new feature</li>
+</ul>
+<p>7.1 Two-sided markets:<br>Geo-based randomization</p>
+<ul>
+<li>Split by geolocations</li>
+<li>Big variance since markets are unique</li>
+</ul>
+<p>Time-based randomization</p>
+<ul>
+<li>Split by day of week</li>
+<li>Assign all users to either treatment or control</li>
+<li>Only when treatment effect is in short time(Surge price)<br>Does not work:</li>
+<li>Treatment effect takes a long time</li>
+<li>A referral program</li>
+</ul>
+<p>7.2 Social network</p>
+<p>7.2.1 Create network clusters:</p>
+<ul>
+<li>People interact mostly whthin the cluster</li>
+<li>Assign clusters randomly</li>
+</ul>
+<p>7.2.2 Ego-network randomization<br>where a cluster s comprised of an “ego” (a focal individual), and her “alters” (the<br>individuals she is immediately connected to)</p>
+<ul>
+<li>Originated from Linkedin</li>
+<li>A cluster is composed of an “ego” and her “alters”</li>
+<li>One-out network effect: user either has the feature or not</li>
+<li>It’s simpler and more scalable</li>
+</ul>
+<p>######################################################################<br>Steps to run AB test</p>
+<ol>
+<li>Prerequisites</li>
+<li>Experiment Design</li>
+<li>Running Experiment</li>
+<li>Result to Decision</li>
+<li>Post-launch Monitoring</li>
+</ol>
+<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><p>1.1 Define key metrics<br>To measure the goal of an experiment<br>Overall Evaluation Criterion(OEC)</p>
+<ul>
+<li>Revenue per user per month</li>
+</ul>
+<p>1.2 Changes are easy to make</p>
+<ul>
+<li>Difficult changes introduce complexity</li>
+</ul>
+<p>1.3 Have enough “randomization units”</p>
+<ul>
+<li>randomization units: who or what randomly allocated to different groups</li>
+<li>How many is enough?</li>
+<li>Large number randomization unit –&gt; detect small effect</li>
+</ul>
+<ol start="2">
+<li>Experiement Design</li>
+</ol>
+<p>2.1 What population to select</p>
+<ul>
+<li>Specific population vs. all users</li>
+</ul>
+<p>2.2 Size of an experiment</p>
+<ul>
+<li>Two-sample t test<br>H0: mu_c &#x3D; mu_t<br>H1: mu_c !&#x3D; mu_t<br>Central limit theorem</li>
+</ul>
+<p>2.3 How long to run an experiment</p>
+<ul>
+<li>Seasonality</li>
+<li>Day of week</li>
+<li>Primacy and novelty effect</li>
+</ul>
+<ol start="3">
+<li>Running Experiment<br>collect the data</li>
+</ol>
+<ul>
+<li>Instrument loggings</li>
+<li>Utilize companies platform</li>
+</ul>
+<ol start="4">
+<li>Result to Decision<br>Check &amp; Interpret results to make decisions<br>Data Scientists spend the most time</li>
+</ol>
+<p>4.1 Sanity checks<br>Check if the data is reliable</p>
+<ul>
+<li>Passed -&gt; continue with analysis</li>
+<li>Failed -&gt; discard the result and find the root cause, rerun the experiment</li>
+</ul>
+<p>4.2 When making decisions, consider</p>
+<ul>
+<li><p>4.2.1 Tradeoffs between different metrics when they go to opposite directions</p>
+</li>
+<li><p>User engegement up</p>
+</li>
+<li><p>Revenue down</p>
+</li>
+<li><p>4.2.2 Cost of launching a change</p>
+<ul>
+<li><p>Engineering maintanance - New code may introduce complexity and bugs</p>
+</li>
+<li><p>Opportunity cost</p>
+<ul>
+<li><p>When costs are high</p>
+<ul>
+<li>Benefit should outweigh the cost</li>
+<li>Set ** practical significance boundary **</li>
+</ul>
+<p>  Differnce between practical significance boundary and statistically significance boundry?</p>
+</li>
+<li><p>When cost are low</p>
+<ul>
+<li>Lauch any positive changes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>Post-Launch Monitoring<br>Long-term effect</li>
+</ol>
+<ul>
+<li>Different from short term effect</li>
+<li>Insights on Novelty effect could help improve future iterations<br>##################################################################################################################<br>Using Hypothesis Testing to Analyze A&#x2F;B Testing results<br>Pratical significant boundry: 0.01<br>Significance level alpha: 0.05</li>
+</ul>
+<p>Two-sample test</p>
+<ol>
+<li>Which hypothesis test to use?</li>
+</ol>
+<ul>
+<li>Bernoulli population: either clicks or doesn’t click</li>
+<li>control group: n*p &#x3D; 1000 * 1.1% &#x3D; 11</li>
+<li>Treatment group: n*p &#x3D; 1000 * 2.3% &#x3D; 23</li>
+<li>Test statistic follows Z-distribution</li>
+</ul>
+<p>Measurements</p>
+<ul>
+<li>Users clicked Xct, Xtr</li>
+<li>Total number of users nct, ntr<br>Pct &#x3D; Xct&#x2F;nct<br>Ptr &#x3D; Xtr&#x2F;ntr</li>
+</ul>
+<ol start="2">
+<li><p>What is the null hypothesis?<br>d &#x3D; ptr - pct<br>Null hypothesis<br>Ho: Pct &#x3D; Ptr, d &#x3D; 0<br>d_mean ~ N(0, SE^2)</p>
+</li>
+<li><p>Is the result statistically significant?<br>Significance level alpha:0.05<br>Test statistics<br>TS &#x3D; (Ptr - Pct)&#x2F;SE<br>Estimate the difference, d<br>Ptr - Pct &#x3D; 0.012</p>
+</li>
+</ol>
+<p>Estimate standard error</p>
+<ul>
+<li>Choose a SE can represent both groups</li>
+<li>“Pooled” standard error<ul>
+<li>“Pooled” probability of a click, p</li>
+<li>Total probably across 2 groups p_pool &#x3D; (Xct + Xtr)&#x2F;(nct + ntr) &#x3D; (11 + 23)&#x2F;(1000 + 1000) &#x3D; 0.017</li>
+<li>S_pool &#x3D; (p*(1-p)*(1&#x2F;nct + 1&#x2F;ntr))^0.5 &#x3D; 0.00578</li>
+</ul>
+</li>
+</ul>
+<p>critical Z score with significance level &#x3D; 0.05 is 1.96<br>Test score &gt; 1.96 or &lt; -1.96 which means the result is statistically significant</p>
+<p>Checking statistical significance</p>
+<ul>
+<li>Check if CI overlaps with 0</li>
+<li>If it does, result is not statistically significant</li>
+<li>Equivalent to compare TS with critical value<br>If the confidence interval (with your chosen level of confidence) includes 0, that implies you think 0 is a reasonable possibility for the true value of the difference. In general, by ‘significant’ people usually mean that they no longer believe the null hypothesis (0) is a reasonable possibility. Note that if a 95% CI doesn’t include 0, the 𝑝-value would be &lt;.05, which is the conventional cutoff for ‘significance’.</li>
+</ul>
+<ol start="4">
+<li>Is the result practically significant?<br>Pratical significance boundry:0.01</li>
+</ol>
+<p>Confidence interval of d</p>
+<ul>
+<li>center of CI &#x3D; 0.012</li>
+<li>Width of CI(margin of error)<br>margin_error &#x3D; Z * SE_pool &#x3D; 1.96 * 0.00578 &#x3D; 0.0113</li>
+</ul>
+<p>CI of d: 0.012 +&#x2F;- 0.0113 &#x3D; 0.0007 ~ 0.0233</p>
+<ol start="5">
+<li>Make decisions</li>
+</ol>
+<p>##################################################################################################################<br>How to improve a product?</p>
+<ol>
+<li>Clarify the question<br>Be clear about the goal</li>
+</ol>
+<ul>
+<li>engagement, retention or revenue?</li>
+</ul>
+<p>Narrow down to a specific product or feature</p>
+<p>Clarify how the feature works</p>
+<ol start="2">
+<li>Identify product improvement opportunities</li>
+</ol>
+<p>2.1 Analyze user journery map</p>
+<ul>
+<li><p>User awareness<br>How often do people see it?<br>Is it large enough?<br>Do people hover over it?</p>
+</li>
+<li><p>To increase awareness<br>Increase the size of the component<br>Use a popup window<br>Send emails or push notifications</p>
+</li>
+<li><p>To reduce friction<br>Provide content templates<br>Remind them to post - Send email&#x2F;Push notification<br>Provide link to edit the post</p>
+</li>
+</ul>
+<p>2.2 Segment users into groups</p>
+<ul>
+<li>Users never posted<br>New users - increase awareness<br>Existing users - Send survery to users<br>Competitors</li>
+</ul>
+<ol start="3">
+<li>Prioritize ideas<br>Quantitative analysis</li>
+</ol>
+<ul>
+<li><p>Proportion of users impacted by each idea<br>Select an idea impacting most user population</p>
+</li>
+<li><p>Select the most cost-effective idea</p>
+</li>
+</ul>
+<ol start="4">
+<li>Measure Success<br>Define 1-2 success metrics</li>
+</ol>
+<ul>
+<li>Be careful about interference</li>
+<li>Social networks</li>
+<li>Two sided market</li>
+</ul>
+<ol start="5">
+<li>Summary<br>Goal<br>Ideas to improve the product<br>How to prioritize the ideas<br>What metric to use<br>How to design the experiment<br>##################################################################################################################<br>AB testing<br>An A&#x2F;B test is an experiment</li>
+</ol>
+<ul>
+<li>All elements are constant</li>
+<li>Except for one variable</li>
+</ul>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/11/28/AB-testing/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;11&#x2F;28&#x2F;AB-testing&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;11&#x2F;28&#x2F;AB-testing&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AB-testing/" rel="tag">AB-testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/" rel="tag">data science</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/12/04/weekly-contest-322/"><i class="iconfont iconleft"></i>weekly-contest-322</a>
+    <a href="/2022/11/27/etsy/">etsy<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

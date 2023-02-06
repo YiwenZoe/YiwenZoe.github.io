@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weekly-contest-294 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Leetcode 2281单调栈 + presum +...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">weekly-contest-294</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">weekly-contest-294</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 22, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6463</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="Leetcode-2281"><a href="#Leetcode-2281" class="headerlink" title="Leetcode 2281"></a>Leetcode 2281</h4><h4 id="单调栈-presum-presum-of-presum"><a href="#单调栈-presum-presum-of-presum" class="headerlink" title="单调栈 + presum + presum of presum"></a>单调栈 + presum + presum of presum</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sum-of-total-strength-of-wizards/discuss/2062997/Python-step-by-step-optimization-and-margin-decision">https://leetcode.com/problems/sum-of-total-strength-of-wizards/discuss/2062997/Python-step-by-step-optimization-and-margin-decision</a></p>
+</li>
+<li><p>思路</p>
+<ul>
+<li>The basic idea is for each index i, we find the range such that nums[i] is the minimum value of this range. Then we simply added the subarray which contains nums[i] within the range: sum(subarray)*nums[i].</li>
+<li>To avoid duplicate intervals, for each index i, only left or right can be &lt;&#x3D; nums[i].</li>
+</ul>
+</li>
+<li><p>Optimize step by step</p>
+<h4 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h4><ul>
+<li>Now we have left and right of the subarray. Next we should find all subarrays in [left, right] which contains nums[i]</li>
+<li>left index range from [left, i]</li>
+<li>right index range from [i, right]</li>
+<li>Then nums[i] * sum of subarrays</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">ans = <span class="hljs-number">0</span><br>mod = <span class="hljs-number">10</span> **<span class="hljs-number">9</span> + <span class="hljs-number">7</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    left = (the index of the nearest num &lt; nums[i]) + <span class="hljs-number">1</span><br>    right = (the index of the nearest num &lt;= nums[i]) - <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(left, i+<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i, right+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l,r+<span class="hljs-number">1</span>): <span class="hljs-comment"># 遍历[left, right]里面的每个数 * nums[i]</span><br>                ans = (ans + nums[j] * nums[i]) % mod<br></code></pre></td></tr></table></figure>
+
+<h4 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h4><ul>
+<li>We can simply get rid of loop j by presum of nums: presum</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">ans = <span class="hljs-number">0</span><br>mod = <span class="hljs-number">10</span> **<span class="hljs-number">9</span> + <span class="hljs-number">7</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    left = (the index of the nearest num &lt; nums[i]) + <span class="hljs-number">1</span><br>    right = (the index of the nearest num &lt;= nums[i]) - <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(left, i+<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i, right+<span class="hljs-number">1</span>):<br>            <span class="hljs-comment"># for j in range(l,r+1): # 遍历[left, right]里面的每个数 * nums[i]</span><br>            <span class="hljs-comment"># nums = [1,2,3,4]</span><br>            <span class="hljs-comment"># presum = [0,1,3,6,10]</span><br>            ans = (ans + nums[i] * (presum[r+<span class="hljs-number">1</span>] - presum[l])) % mod<br></code></pre></td></tr></table></figure>
+
+<h4 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h4><ul>
+<li>Remove loop r </li>
+<li>In r loop, presum[l] is the same, assume presum[l] &#x3D; a</li>
+<li>for r in range(i, right+1): nums[i] * (presum[r+1] - a) –&gt; nums[i] * SUM(presum[i+1] + presum[i+2] + … + presum[right+1]) - nums[i] * a * (right + 1 - i)</li>
+<li>presum of presum: pss –&gt; pss[right+1] - pss[i] &#x3D; SUM(presum[i] + presum[i+1] + … + presum[right+1])</li>
+<li>for r in range(i, right+1): nums[i] * (pss[right+1] - pss[i]) - nums[i] * presum[l] * (right + 1 -i) &#x3D; nums[i] * ((pss[right+1] - pss[i]) - presum[l] * (right + 1 -i))</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">ans = <span class="hljs-number">0</span><br>mod = <span class="hljs-number">10</span> **<span class="hljs-number">9</span> + <span class="hljs-number">7</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    left = (the index of the nearest num &lt; nums[i]) + <span class="hljs-number">1</span><br>    right = (the index of the nearest num &lt;= nums[i]) - <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(left, i+<span class="hljs-number">1</span>):<br>        <span class="hljs-comment"># for r in range(i, right+1):</span><br>            <span class="hljs-comment"># for j in range(l,r+1): # 遍历[left, right]里面的每个数 * nums[i]</span><br>            <span class="hljs-comment"># nums = [1,2,3,4]</span><br>            <span class="hljs-comment"># presum = [0,1,3,6,10]</span><br>        p1 = pss[right+<span class="hljs-number">1</span>+<span class="hljs-number">1</span>]-pss[i+<span class="hljs-number">1</span>] = pss[right+<span class="hljs-number">2</span>] - pss[i+<span class="hljs-number">1</span>]<br>        p2 = (right + <span class="hljs-number">1</span> - i) * presum[l]<br>        ans = (ans + nums[i] * (p1-p2)) % mod<br></code></pre></td></tr></table></figure>
+
+<h4 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h4><ul>
+<li>Remove loop l  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">for l in range(left, i+1): </span><br><span class="hljs-string">    p1 = pss[right+2] - pss[i+1] # not related with l</span><br><span class="hljs-string">    p2 = (right + 1 - i) * presum[l]</span><br><span class="hljs-string">    ans = (ans + nums[i] * (p1-p2)) % mod</span><br><span class="hljs-string"># --&gt;</span><br><span class="hljs-string">nums[i] * (p1-p2) = nums[i] * p1 - nums[i] * p2</span><br><span class="hljs-string">                  = nums[i] * p1 * (i+1-left) - nums[i] * (right + 1 - i) * (presum[left] + presum[left+1] + ... + presum[i]) </span><br><span class="hljs-string">                  = nums[i] * p1 * (i+1-left) - nums[i] * (right + 1 - i) * (pss[i+1] - pss[left]) </span><br><span class="hljs-string">                  = nums[i] * (p1 * (i+1-left) - (right + 1 - i) * (pss[i+1] - pss[left]))</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">ans = <span class="hljs-number">0</span><br>mod = <span class="hljs-number">10</span> **<span class="hljs-number">9</span> + <span class="hljs-number">7</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    left = (the index of the nearest num &lt; nums[i]) + <span class="hljs-number">1</span><br>    right = (the index of the nearest num &lt;= nums[i]) - <span class="hljs-number">1</span><br>    <span class="hljs-comment">#for l in range(left, i+1):</span><br>        <span class="hljs-comment"># for r in range(i, right+1):</span><br>            <span class="hljs-comment"># for j in range(l,r+1): # 遍历[left, right]里面的每个数 * nums[i]</span><br>            <span class="hljs-comment"># nums = [1,2,3,4]</span><br>            <span class="hljs-comment"># presum = [0,1,3,6,10]</span><br>    p1 = (pss[right+<span class="hljs-number">2</span>] - pss[i+<span class="hljs-number">1</span>]) * (i+<span class="hljs-number">1</span>-left)<br>    p2 = (right + <span class="hljs-number">1</span> - i) * (pss[i+<span class="hljs-number">1</span>] - pss[left])<br>    ans = (ans + nums[i] * (p1-p2)) % mod<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>pre sum</p>
+<ul>
+<li>nums &#x3D; [1,2,3,4,5]</li>
+<li>presum &#x3D; [0] 一开始先放一个0</li>
+<li>presum[r+1] - presum[l] &#x3D; nums[l] + nums[l+1] + … + nums[r]</li>
+</ul>
+</li>
+<li><p>Final Solution</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">totalStrength</span>(<span class="hljs-params">self, strength: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">right_bound</span>(<span class="hljs-params">nums</span>):<br>            <span class="hljs-comment"># find the nearest index &lt;= current number then -1</span><br>            <span class="hljs-comment"># Maintain a mono-increasing stack </span><br>            <span class="hljs-comment"># condition: if new_num &lt;= stack pop: stack.pop()</span><br>            stack = []<br>            d = collections.defaultdict(<span class="hljs-built_in">int</span>)<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>                cur = nums[i]<br>                <span class="hljs-keyword">while</span> stack <span class="hljs-keyword">and</span> cur &lt;= stack[-<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]:<br>                    top_num, top_index = stack.pop()<br>                    d[top_index] = i<br>                stack.append((nums[i],i))<br><br>            right_index = [] <br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>                <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> d:<br>                    right_index.append(d[i]-<span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">else</span>:<br>                    right_index.append(<span class="hljs-built_in">len</span>(nums)-<span class="hljs-number">1</span>)<br>            <br>            <span class="hljs-keyword">return</span> right_index<br>                    <br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">left_bound</span>(<span class="hljs-params">nums</span>):<br>            <span class="hljs-comment"># find the nearest index &lt; current number then + 1</span><br>            <span class="hljs-comment"># from right to left</span><br>            <span class="hljs-comment"># Maintain a mono-increasing stack </span><br>            <span class="hljs-comment"># condition: if new_num &lt; stack pop: stack.pop()</span><br>            stack = []<br>            d = collections.defaultdict(<span class="hljs-built_in">int</span>)<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>):<br>                cur = nums[i]<br>                <span class="hljs-keyword">while</span> stack <span class="hljs-keyword">and</span> cur &lt; stack[-<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]:<br>                    top_num, top_index = stack.pop()<br>                    d[top_index] = i<br>                stack.append((nums[i],i))<br><br>            left_index = [] <br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>                <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> d:<br>                    left_index.append(d[i] + <span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">else</span>:<br>                    left_index.append(<span class="hljs-number">0</span>)<br>            <br>            <span class="hljs-keyword">return</span> left_index<br>        <br>        <br>        left_idx, right_idx = left_bound(strength), right_bound(strength)<br>        <br>        <span class="hljs-comment"># presum of nums</span><br>        <span class="hljs-comment"># nums = [1,2,3,4,5]</span><br>        <span class="hljs-comment"># ps =   [0,1,3,6,10,15]</span><br>        <span class="hljs-comment"># pss =  [0,0,1,4,10,20,35]</span><br>        <br>        ps = [<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> strength:<br>            ps.append(ps[-<span class="hljs-number">1</span>] + n)<br>        <br>        <span class="hljs-comment"># presum of presum</span><br>        pss = [<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> ps:<br>            pss.append(pss[-<span class="hljs-number">1</span>] + n)<br>        <br>        ans = <span class="hljs-number">0</span><br>        mod = <span class="hljs-number">10</span>**<span class="hljs-number">9</span> + <span class="hljs-number">7</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(strength)):<br>            left = left_idx[i]<br>            right = right_idx[i]<br>            p1 = (pss[right+<span class="hljs-number">2</span>] - pss[i+<span class="hljs-number">1</span>]) * (i+<span class="hljs-number">1</span>-left)<br>            p2 = (right + <span class="hljs-number">1</span> - i) * (pss[i+<span class="hljs-number">1</span>] - pss[left])<br>            ans = (ans + strength[i] * (p1-p2)) % mod  <br>        <br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/05/22/weekly-contest-294/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;05&#x2F;22&#x2F;weekly-contest-294&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;05&#x2F;22&#x2F;weekly-contest-294&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/05/23/leetcode/"><i class="iconfont iconleft"></i>leetcode</a>
+    <a href="/2022/05/19/stack/">stack<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

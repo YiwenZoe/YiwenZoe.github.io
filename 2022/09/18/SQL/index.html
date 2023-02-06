@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SQL - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Window Function
+DENSE_RANK(...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">SQL</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">SQL</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>September 18, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>16250</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="Window-Function"><a href="#Window-Function" class="headerlink" title="Window Function"></a>Window Function</h1><ul>
+<li>DENSE_RANK() OVER(PARTITION BY a ORDER BY b (ASC|DESC))</li>
+<li>RANK() OVER(PARTITION BY a ORDER BY b)</li>
+<li>ROW_NUMBER() OVER(PARTITION BY ORDER BY )</li>
+</ul>
+<p>StyleID     ID       RANK      ROW_NUMBER      DENSE_RANK</p>
+<hr>
+<p>1           1        1         1               1<br>1           1        1         2               1<br>1           1        1         3               1<br>1           2        4         4               2</p>
+<ul>
+<li>FIRST_VALUE()</li>
+<li>LAST_VALUE()</li>
+<li>LAG() - value in the Above row</li>
+<li>LEAD() - value in the below row</li>
+<li>PERCENTILE_RANK() <ul>
+<li>x: 当前行的rank</li>
+<li>(x-1)&#x2F; total count of rows</li>
+<li>PERCENTILE_RANK &#x3D; 0.5 -&gt; Median</li>
+</ul>
+</li>
+<li>MAX()</li>
+<li>MIN()</li>
+<li>SUM() OVER(PARTIION BY A ORDER BY) –&gt; Cumulative sum</li>
+</ul>
+<h1 id="Order-of-execution-of-query"><a href="#Order-of-execution-of-query" class="headerlink" title="Order of execution of query"></a>Order of execution of query</h1><ol>
+<li>FROM &amp; JOIN</li>
+<li>WHERE</li>
+<li>GROUP BY</li>
+<li>HAVING</li>
+<li>SELECT</li>
+<li>DISTINCT</li>
+<li>ORDER BY</li>
+<li>LIMIT&#x2F;OFFSET</li>
+</ol>
+<h1 id="DATE-x2F-TIME"><a href="#DATE-x2F-TIME" class="headerlink" title="DATE&#x2F;TIME"></a>DATE&#x2F;TIME</h1><ul>
+<li>Current datetime</li>
+<li>CURRENT_TIMESTAMP</li>
+<li>GETDATE()</li>
+</ul>
+<p>Convert datetime to date</p>
+<ul>
+<li>CONVERT(CURRENT_TIMESTAMP, DATE)</li>
+<li>CONVERT(value, type)</li>
+<li>DATE_FORMAT(“2017-06-15”, “%Y-%m-%d”)</li>
+</ul>
+<p>The DATEADD() function adds a time&#x2F;date interval to a date and then returns the date.</p>
+<ul>
+<li>DATEADD(year&#x2F;month&#x2F;week&#x2F;day&#x2F;hour&#x2F;minute&#x2F;second, 1, ‘2017&#x2F;08&#x2F;25’)</li>
+</ul>
+<p>The DATEDIFF() function returns the difference between two dates.<br>end_date - start_date</p>
+<ul>
+<li>DATEDIFF(year&#x2F;month&#x2F;week&#x2F;day&#x2F;hour&#x2F;minute&#x2F;second, start_date, end_date)</li>
+</ul>
+<h1 id="Create-table"><a href="#Create-table" class="headerlink" title="Create table"></a>Create table</h1><p>INSERT INTO table_name (column1, column2, column3, …)<br>VALUES (value1, value2, value3, …);</p>
+<p>create table Test(id integer, title varchar(100));<br>insert into Test(id, title)<br>Values(1, “Hello”);<br>select * from Test;</p>
+<h1 id="Split-string-into-rows"><a href="#Split-string-into-rows" class="headerlink" title="Split string into rows"></a>Split string into rows</h1><ul>
+<li><p>SUBSTRING_INDEX(string, delimiter, number)<br>Return a substring of a string before a specified number of delimiter occurs:</p>
+</li>
+<li><p>The CHAR_LENGTH() function return the length of a string (in characters).</p>
+</li>
+<li><p>REPLACE(string, from_string, new_string)<br>The REPLACE() function replaces all occurrences of a substring within a string, with a new substring.</p>
+</li>
+<li><p>REVERSE(string)<br>REVERSE() function reverses a string and returns the result.</p>
+</li>
+</ul>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>tablename<br>id | name<br>1  | a,b,c<br>2  | b</p>
+<p>n  n-1   id   name<br>1   0     1    a,b,c<br>2   1     1    a,b,c<br>3   2     1    a,b,c<br>1   0     2    b<br>4   3<br>5   4</p>
+<p>id | name<br>1  | a<br>1  | b<br>1  | c<br>2  | b</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- Method 1</span><br><span class="hljs-comment">-- If you can create a numbers table, that contains numbers from 1 to the maximum fields to split, you could use a solution like this:</span><br><br><span class="hljs-keyword">select</span><br>  tablename.id,<br>  SUBSTRING_INDEX(SUBSTRING_INDEX(tablename.name, <span class="hljs-string">&#x27;,&#x27;</span>, numbers.n), <span class="hljs-string">&#x27;,&#x27;</span>, <span class="hljs-number">-1</span>) name<br><span class="hljs-keyword">from</span><br>  numbers <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> tablename<br>  <span class="hljs-keyword">on</span> <span class="hljs-keyword">CHAR_LENGTH</span>(tablename.name)<br>     <span class="hljs-operator">-</span><span class="hljs-keyword">CHAR_LENGTH</span>(REPLACE(tablename.name, <span class="hljs-string">&#x27;,&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>))<span class="hljs-operator">&gt;=</span>numbers.n<span class="hljs-number">-1</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span><br>  id, n<br><br><br><span class="hljs-comment">-- If you cannot create a table, then a solution can be this:</span><br><span class="hljs-keyword">select</span><br>  tablename.id,<br>  SUBSTRING_INDEX(SUBSTRING_INDEX(tablename.name, <span class="hljs-string">&#x27;,&#x27;</span>, numbers.n), <span class="hljs-string">&#x27;,&#x27;</span>, <span class="hljs-number">-1</span>) name<br><span class="hljs-keyword">from</span><br>  (<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">as</span> n <span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span><br>   <span class="hljs-keyword">select</span> <span class="hljs-number">2</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">select</span> <span class="hljs-number">3</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span><br>   <span class="hljs-keyword">select</span> <span class="hljs-number">4</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">select</span> <span class="hljs-number">5</span>) numbers <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> tablename<br>  <span class="hljs-keyword">on</span> <span class="hljs-keyword">CHAR_LENGTH</span>(tablename.name)<br>     <span class="hljs-operator">-</span><span class="hljs-keyword">CHAR_LENGTH</span>(REPLACE(tablename.name, <span class="hljs-string">&#x27;,&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>))<span class="hljs-operator">&gt;=</span>numbers.n<span class="hljs-number">-1</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span><br>  id, n<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>We are studying ecommerce advertisers on wechat over a certain time period (say a week). The time period does not matter for this problem. </p>
+<p>You are given 2 Tables:<br>adv_info: advertiser_id, ad_id, spend (primary key: ad_id)<br>ad_info: ad_id, user_id, price (primary key: ad_id, user_id) </p>
+<p>Adv_info table contains information on advertisers. Advertiser_id is id of advertiser; ad_id is id of an ad being run by advertiser; spend is amount of money in $ that advertiser pays wechat for ad-id to show it to Wechat users; price is the revenue for a specific ad.<br>Q1: What would be the average advertiser spend on Wechat? Your query should return a single number.<br>Q2a: find advertisers with at least one conversion (click the ad or buy the product)<br>Q2b: what % of advertisers have at least one converted user.<br>Q3: We want to come up with an advertiser level metric that quantifies how well wechat advertising is working for advertisers. This should be based on the above 2 tables. After coming up with this metric, we want to compute it for each advertiser. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- Q1 What would be the average advertiser spend on Wechat? Your query should return a single number.</span><br><span class="hljs-keyword">select</span><br><span class="hljs-built_in">AVG</span>(spend) <span class="hljs-keyword">AS</span> avg_spend,<br><span class="hljs-built_in">SUM</span>(spend)<span class="hljs-operator">*</span><span class="hljs-number">1.00</span><span class="hljs-operator">/</span><span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> advertiser_id) <span class="hljs-keyword">as</span> avg_spend<br><span class="hljs-keyword">from</span> adv_info<br>;<br><br><span class="hljs-comment">-- Q2a: find advertisers with at least one conversion (click the ad or buy the product)</span><br><span class="hljs-keyword">select</span><br><span class="hljs-keyword">DISTINCT</span> <br>adv_info.advertiser_id<br><span class="hljs-keyword">from</span><br>adv_info <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> ad_info<br><span class="hljs-keyword">on</span> adv_info.ad_id <span class="hljs-operator">=</span> ad_info.ad_id<br>;<br><br><span class="hljs-comment">-- Q2b: what % of advertisers have at least one converted user. </span><br><span class="hljs-comment">-- at least one converted user --&gt; revenue &gt; 0</span><br><span class="hljs-comment">-- We should calculate the revenue per advertiser</span><br><br>adv_info: advertiser_id, ad_id, spend (<span class="hljs-keyword">primary</span> key: ad_id)<br>ad_info: ad_id, user_id, price (<span class="hljs-keyword">primary</span> key: ad_id, user_id) <br><br><span class="hljs-keyword">select</span><br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> revenue <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">end</span>)<span class="hljs-operator">*</span><span class="hljs-number">1.00</span><span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">as</span> perc<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br>advertiser_id,<br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> price <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">then</span> <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> price <span class="hljs-keyword">end</span>) <span class="hljs-keyword">as</span> revenue<br><span class="hljs-keyword">from</span><br>adv_info <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> ad_info<br><span class="hljs-keyword">on</span> adv_info.ad_id <span class="hljs-operator">=</span> ad_info.ad_id<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> advertiser_id) <span class="hljs-keyword">as</span> tmp<br>;<br><br><br><span class="hljs-comment">-- Q3: We want to come up with an advertiser level metric that quantifies how well wechat advertising is working for advertisers. </span><br><span class="hljs-comment">-- This should be based on the above 2 tables. After coming up with this metric, we want to compute it for each advertiser. </span><br><br><span class="hljs-comment">-- ROI(Return on invesment)= revenue/spend - 1</span><br><span class="hljs-keyword">select</span><br>advertiser_id,<br>round(revenue<span class="hljs-operator">/</span>spend<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> ROI<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br>adv_info.advertiser_id,<br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> price <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">then</span> <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> price <span class="hljs-keyword">end</span>) <span class="hljs-keyword">as</span> revenue,<br><span class="hljs-built_in">sum</span>(spend) <span class="hljs-keyword">as</span> spend<br><span class="hljs-keyword">from</span> <br>adv_info <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span><br>(<span class="hljs-keyword">select</span><br>ad_id,<br><span class="hljs-built_in">sum</span>(price) <span class="hljs-keyword">as</span> revenue<br><span class="hljs-keyword">from</span> ad_info<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> ad_id) <span class="hljs-keyword">as</span> tmp<br><span class="hljs-keyword">on</span> adv_info.ad_id <span class="hljs-operator">=</span> tmp.ad_id<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> adv_info.advertiser_id<br>) <span class="hljs-keyword">as</span> tmp2<br>;<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Q2"><a href="#Q2" class="headerlink" title="Q2"></a>Q2</h4><p>Suppose we have two tables:<br>1.Composer table:<br>user_id | date | event<br>event possible values: ‘enter’,’post’,’cancel’</p>
+<p>2.User table:<br>user_id | date | country | dau_flag<br>dau_flag: possible values: 1 or 0</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-number">1.</span> What <span class="hljs-keyword">is</span> the average rate <span class="hljs-keyword">of</span> successfully post <span class="hljs-keyword">on</span> <span class="hljs-keyword">last</span> week?<br><span class="hljs-comment">-- average rate of successfully post per user</span><br><span class="hljs-keyword">select</span><br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> event <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;post&#x27;</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">end</span>)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> user_id) <span class="hljs-keyword">as</span> success_rate<br><span class="hljs-keyword">from</span> Composer<br><span class="hljs-keyword">where</span> <span class="hljs-type">date</span> <span class="hljs-keyword">between</span> dateadd(week, <span class="hljs-number">-1</span>, <span class="hljs-keyword">convert</span>(getdate(), <span class="hljs-type">date</span>)) <span class="hljs-keyword">and</span> <span class="hljs-keyword">convert</span>(getdate(),<span class="hljs-type">date</span>)<br>;<br><br><span class="hljs-number">2.</span> What <span class="hljs-keyword">is</span> the average rate <span class="hljs-keyword">of</span> post <span class="hljs-keyword">for</span> daily active <span class="hljs-keyword">user</span> <span class="hljs-keyword">by</span> country today?<br><span class="hljs-comment">-- need to identify the dau_flag and country of user_id </span><br><br><span class="hljs-keyword">select</span><br>user.country,<br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> event <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;post&#x27;</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">end</span>)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> composer.user_id) <span class="hljs-keyword">as</span> res<br><span class="hljs-keyword">from</span><br>composer <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> <span class="hljs-keyword">user</span><br><span class="hljs-keyword">on</span> composer.user_id <span class="hljs-operator">=</span> user.user_id<br><span class="hljs-keyword">where</span> composer.date <span class="hljs-operator">=</span> <span class="hljs-keyword">convert</span>(getdate(),<span class="hljs-type">date</span>)<br><span class="hljs-keyword">and</span> user.dau_flag <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> user.country<br>;<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Q3"><a href="#Q3" class="headerlink" title="Q3"></a>Q3</h4><p>给一张表描述Line每天聊天数量的记录(n_msg &#x3D; # of messages)<br>date | user1 | user2 | n_msg</p>
+<p>(1)从这个表我们可以知道些什么信息?<br>a. On each day, the user pairs with the most message count<br>b. The count of messages trend by date&#x2F;time<br>c. The distribution of the number of message</p>
+<p>(2)写个query得到某一天用户发消息朋友数量的distribution，就是output出两列，<br>X: number of unique contacts for each user;<br>Y: number of user with this many contacts。<br>你觉得这个 distribution会长什么样子，为什么?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span><br>cnt,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> <span class="hljs-keyword">user</span>) <span class="hljs-keyword">as</span> user_cnt<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br><span class="hljs-keyword">user</span>,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> contact) <span class="hljs-keyword">as</span> cnt<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br>user1 <span class="hljs-keyword">as</span> <span class="hljs-keyword">user</span>,<br>user2 <span class="hljs-keyword">as</span> contact<br><span class="hljs-keyword">from</span> tbl<br><span class="hljs-keyword">where</span> <span class="hljs-type">date</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">convert</span>(getdate(),<span class="hljs-type">date</span>)<br><span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span><br><span class="hljs-keyword">select</span><br>user2 <span class="hljs-keyword">as</span> <span class="hljs-keyword">user</span>,<br>user2 <span class="hljs-keyword">as</span> contact<br><span class="hljs-keyword">from</span> tbl<br><span class="hljs-keyword">where</span> <span class="hljs-type">date</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">convert</span>(getdate(),<span class="hljs-type">date</span>)) <span class="hljs-keyword">as</span> tmp1<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">user</span>) <span class="hljs-keyword">as</span> tmp2<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> cnt<br>;<br><br><span class="hljs-built_in">Log</span>(normal) distribution <span class="hljs-comment">--&gt; Right skewed --&gt; As cnt becomes very large, the count of user will be much smaller.</span><br><br><span class="hljs-number">3.</span>写个query找到每个<span class="hljs-keyword">user</span>发信息最多(所有消息总和数)的top partner<br><br><span class="hljs-type">date</span> <span class="hljs-operator">|</span> user1 <span class="hljs-operator">|</span> user2 <span class="hljs-operator">|</span> n_msg<br><br><span class="hljs-keyword">select</span><br><span class="hljs-keyword">user</span>,<br>contact<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br><span class="hljs-keyword">user</span>,<br>contact,<br><span class="hljs-built_in">rank</span>() <span class="hljs-keyword">over</span>(<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> usr <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> n_msg) <span class="hljs-keyword">as</span> rnk<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br><span class="hljs-keyword">user</span>,<br>contact,<br><span class="hljs-built_in">sum</span>(n_msg) <span class="hljs-keyword">as</span> n_msg<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br>user1 <span class="hljs-keyword">as</span> <span class="hljs-keyword">user</span>,<br>user2 <span class="hljs-keyword">as</span> contact,<br>n_msg<br><span class="hljs-keyword">from</span> tbl<br><span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span><br><span class="hljs-keyword">select</span><br>user2 <span class="hljs-keyword">as</span> <span class="hljs-keyword">user</span>,<br>user2 <span class="hljs-keyword">as</span> contact,<br>n_msg<br><span class="hljs-keyword">from</span> tbl) <span class="hljs-keyword">as</span> tmp<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">user</span>, contact) <span class="hljs-keyword">as</span> tmp2)<br><span class="hljs-keyword">where</span> rnk <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br>;<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="Q4"><a href="#Q4" class="headerlink" title="Q4"></a>Q4</h4><p>有两张表来记录用户在浏览网页时的session info。<br>对于A表:每一次用户进入页面分派一个 unique session id，用户离开则这一个session结束，期间用户的每一个行为都会生成一条记录;<br>对于表B:记录一条session存在的时间。<br>Table A: date, session_id, user_id, act (‘enter’, ‘exit’, ‘post’)<br>Table B: date, session_id, time_spent – (here date + session_id is primary key)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-number">1.</span> generate average number <span class="hljs-keyword">of</span> sessions <span class="hljs-keyword">per</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">per</span> day.<br><span class="hljs-keyword">select</span><br><span class="hljs-type">date</span>,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> session_id)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> user_id) <span class="hljs-keyword">as</span> avg_session_per_user<br><span class="hljs-keyword">from</span> tablea<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <br><span class="hljs-type">date</span><br>;<br><br><span class="hljs-number">2.</span> Generate number <span class="hljs-keyword">of</span> users <span class="hljs-keyword">per</span> <span class="hljs-type">time</span> <span class="hljs-type">interval</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">to</span> measure how many users <span class="hljs-keyword">is</span> spending certain amount <span class="hljs-keyword">of</span> <span class="hljs-type">time</span><br>Time_spent  <span class="hljs-operator">|</span> num_of_users<br>    <span class="hljs-number">0</span>             <span class="hljs-number">1</span><br>    <span class="hljs-number">2</span>             <span class="hljs-number">10</span><br><br><span class="hljs-keyword">select</span><br>table_b.time_spent,<br><span class="hljs-built_in">sum</span>(user_cnt) <span class="hljs-keyword">as</span> res<br><span class="hljs-keyword">from</span><br>table_b <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span><br>(<span class="hljs-keyword">select</span><br><span class="hljs-type">date</span>, <br>session_id,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> user_id) <span class="hljs-keyword">as</span> user_cnt<br><span class="hljs-keyword">from</span><br>table_a<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span><br><span class="hljs-type">date</span>, session_id) <span class="hljs-keyword">as</span> tmp <span class="hljs-keyword">on</span> table_b.date<span class="hljs-operator">=</span>tmp.date <span class="hljs-keyword">and</span> table_b.session_id <span class="hljs-operator">=</span> tmp.session_id<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> table_b.time_spent<br>;<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Q5"><a href="#Q5" class="headerlink" title="Q5"></a>Q5</h4><p>有一张表用来记录用户互相发送好友请求的记录(FB，wechat，etc)<br>Friending Table:<br>ds &#x3D; date<br>action &#x3D; {‘send_request’, ‘accept_request’}<br>actor_uid &#x3D; uid of person pressing the button to take the action<br>target_uid &#x3D; uid of the other person involved</p>
+<p>ds | action | actor_uid | target_uid</p>
+<p>riending table:<br>ds(date)        action           actor_uid  target_uid       ds            action             actor_uid    target_uid<br>2019-4-1    ‘send_request’          3          5             2019-4-2    ‘accept_request’        5              3<br>2019-4-2    ‘accept_request’        5          3             2019-4-1    ‘send_request’          3              5<br>2019-4-3    ‘send_request’          6          8                              null</p>
+<p>Q. How is the overall friending acceptance rate changing over time? What is this acceptance rate yesterday?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span><br>a.ds,<br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> b.actor_uid <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">end</span>)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">as</span> res<br><span class="hljs-keyword">from</span><br>friend a <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> friend b<br><span class="hljs-keyword">on</span> a.actor_id <span class="hljs-operator">=</span> b.target_id<br><span class="hljs-keyword">and</span> a.target_id <span class="hljs-operator">=</span> b.actor_id<br><span class="hljs-keyword">where</span> a.action <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;send_request&#x27;</span> <span class="hljs-keyword">and</span> b.action <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;accept_request&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> a.ds<br>;<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Q6"><a href="#Q6" class="headerlink" title="Q6"></a>Q6</h4><p>Given the below subset of Uber’s schema, write executable SQL queries to answer the questions below.<br>Please answer in a single query and assume read-only access to the database (i.e. do not use CREATE TABLE).<br>Assume a PostgreSQL database, server timezone is UTC.</p>
+<p>Table Name: trips<br>Column Name:        Datatype:<br>id                  integer<br>client_id           integer (Foreign keyed to users.user_id)<br>driver_id           integer (Foreign keyed to users.user_id)<br>city_id             integer<br>client_rating       integer<br>driver_rating       integer<br>status              Enum (‘completed’, ‘cancelled_by_driver’, ‘cancelled_by_client’)<br>actual_eta          integer<br>request_at          timestamp with timezone<br>distance            float<br>fare                float</p>
+<p>Table Name: cities<br>Column Name:        Datatype:<br>city_id             integer<br>name                character varying (varchar)<br>created_at          timestamp with timezone<br>launched_at         timestamp with timezone<br>status              Enum (‘active’, ‘launching’, ‘closed’)<br>country             character varying (varchar)</p>
+<p>Table Name: users<br>Column Name:        Datatype:<br>user_id             integer<br>first_name          character varying (varchar)<br>last_name           character varying (varchar)<br>email               character varying (varchar)<br>signup_city_id      integer<br>banned              Boolean<br>role                Enum (‘client’, ‘driver’, ‘partner’)<br>created_at          timestamp with timezone<br>updated_at          timestamp with timezone<br>referral_code       character varying (varchar)<br>referred_by         integer (Foreign keyed to users.user_id)<br>deleted_at          timestamp with timezone</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-number">1.</span><span class="hljs-keyword">In</span> Sept. <span class="hljs-number">2017</span>, how many <span class="hljs-number">30</span> RMB trips were completed <span class="hljs-keyword">in</span> the China <span class="hljs-keyword">by</span> <span class="hljs-keyword">day</span>?<br>What percentage <span class="hljs-keyword">of</span> trips (completed <span class="hljs-keyword">in</span> Sept) were completed <span class="hljs-keyword">by</span> client who signed up during Sept. <span class="hljs-number">2017</span> <span class="hljs-keyword">in</span> China?<br><span class="hljs-operator">-</span> <span class="hljs-number">30</span><br><span class="hljs-operator">-</span> completed<br><span class="hljs-operator">-</span> China<br><span class="hljs-keyword">select</span><br><span class="hljs-keyword">convert</span>(trips.request_at, <span class="hljs-type">date</span>) <span class="hljs-keyword">as</span> <span class="hljs-keyword">day</span>,<br><span class="hljs-comment">-- date_format(request_at, &#x27;%Y-%m-%d&#x27;) as day</span><br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> trips.id) <span class="hljs-keyword">as</span> res<br><span class="hljs-keyword">from</span><br>trips <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> cities<br><span class="hljs-keyword">on</span> trips.city_id <span class="hljs-operator">=</span> cities.city_id<br><span class="hljs-keyword">where</span> cities.country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;China&#x27;</span><br><span class="hljs-keyword">and</span> fare <span class="hljs-operator">=</span> <span class="hljs-number">30</span> <span class="hljs-keyword">and</span> a.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;completed&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">year</span>(request_at) <span class="hljs-operator">=</span> <span class="hljs-number">2017</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">month</span>(request_at) <span class="hljs-operator">=</span> <span class="hljs-number">9</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">convert</span>(request_at, <span class="hljs-type">date</span>)<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">convert</span>(request_at, <span class="hljs-type">date</span>)<br>;<br><br><br><span class="hljs-number">2.</span>Identify the <span class="hljs-number">15</span> most frequent <span class="hljs-keyword">last</span> names <span class="hljs-keyword">for</span> Uber ‘clients’?<br><br><span class="hljs-keyword">select</span><br>last_name,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> user_id) <span class="hljs-keyword">as</span> user_cnt<br><span class="hljs-keyword">from</span> users<br><span class="hljs-keyword">where</span> role <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;client&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> last_name<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> user_cnt <span class="hljs-keyword">desc</span><br>limit <span class="hljs-number">15</span><br>;<br><br><span class="hljs-number">3.</span><span class="hljs-keyword">For</span> city_id  <span class="hljs-number">22</span>, <span class="hljs-number">23</span>, <span class="hljs-keyword">and</span> <span class="hljs-number">35</span>, list the top three clients <span class="hljs-keyword">by</span> average fare <span class="hljs-keyword">per</span> trip <br>(min. <span class="hljs-number">25</span> completed trips) <span class="hljs-keyword">for</span> the <span class="hljs-keyword">first</span> half <span class="hljs-keyword">of</span> <span class="hljs-number">2012.</span> January <span class="hljs-number">1</span>st <span class="hljs-operator">-</span> June <span class="hljs-number">30</span>th. <br>Assume the minimum fare is. <span class="hljs-number">25</span> RMB <span class="hljs-keyword">in</span> <span class="hljs-keyword">all</span> markets.<br><br><span class="hljs-keyword">select</span><br>city_id,<br>client_id<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br>city_id,<br>client_id,<br><span class="hljs-built_in">rank</span>() <span class="hljs-keyword">over</span>(<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> city_id <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> avg_fare_per_trip <span class="hljs-keyword">desc</span>) <span class="hljs-keyword">as</span> rnk<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br>city_id,<br>client_id,<br><span class="hljs-built_in">sum</span>(fare)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> id) <span class="hljs-keyword">as</span> avg_fare_per_trip<br><span class="hljs-keyword">from</span> trips <br><span class="hljs-keyword">where</span> city_id <span class="hljs-keyword">IN</span> (<span class="hljs-number">22</span>,<span class="hljs-number">23</span>,<span class="hljs-number">35</span>) <span class="hljs-keyword">and</span> date_format(request_at, <span class="hljs-string">&#x27;%Y-%m-%d&#x27;</span>) <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;2021-01-01&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;2012-06-30&#x27;</span><br><span class="hljs-keyword">and</span> trips.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;completed&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> city_id,client_id<br><span class="hljs-keyword">having</span> <span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> id) <span class="hljs-operator">&gt;=</span> <span class="hljs-number">25</span>) <span class="hljs-keyword">as</span> tmp) <span class="hljs-keyword">as</span> tmp2<br><span class="hljs-keyword">where</span> rnk<span class="hljs-operator">&lt;=</span> <span class="hljs-number">3</span><br>;<br><br><br><span class="hljs-number">4.</span> Identify the client <span class="hljs-keyword">and</span> driver <span class="hljs-keyword">and</span> partner <span class="hljs-keyword">with</span> the most referrals <span class="hljs-keyword">in</span> <span class="hljs-number">2013.</span> <br>The query’s output should display contact information along <span class="hljs-keyword">with</span> the signup_date <span class="hljs-keyword">of</span> their <span class="hljs-keyword">last</span> referral.<br>谁Refer的人最多<br>要得到的是最后refer的那个人的email和sign_up_date<br>Role          user_id(referer)      ( last_referal_id)    signup_date    email<br>Client              <span class="hljs-number">2</span>                        <span class="hljs-number">5</span><br>Driver              <span class="hljs-number">8</span>                        <span class="hljs-number">11</span><br>Partner             <span class="hljs-number">6</span>                        <span class="hljs-number">9</span><br><br>Role          user_id(referer)   created_at   referred_by    user_id    role <br>Client              <span class="hljs-number">5</span>             <span class="hljs-number">2012</span><span class="hljs-number">-12</span><span class="hljs-number">-01</span>      <span class="hljs-number">2</span>            <span class="hljs-number">2</span><br>Driver              <span class="hljs-number">11</span>                            <span class="hljs-number">8</span>            <span class="hljs-number">8</span><br>Partner             <span class="hljs-number">9</span>                             <span class="hljs-number">6</span>            <span class="hljs-number">6</span><br><br><br><br><span class="hljs-number">5.</span> What <span class="hljs-keyword">is</span> the average client_rating <span class="hljs-keyword">for</span> completed trips <span class="hljs-keyword">in</span> London <span class="hljs-keyword">for</span> early morning (<span class="hljs-number">2</span>am <span class="hljs-operator">-</span> <span class="hljs-number">5</span>am) trips?<br><br><span class="hljs-keyword">select</span><br><span class="hljs-built_in">SUM</span>(client_rating) <span class="hljs-operator">*</span> <span class="hljs-number">1.00</span><span class="hljs-operator">/</span><span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">distinct</span> client_id) <span class="hljs-keyword">as</span> average_client_rating<br><span class="hljs-keyword">from</span><br>trips <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> cities <span class="hljs-keyword">on</span> trips.city_id <span class="hljs-operator">=</span> citied.city_id<br><span class="hljs-keyword">where</span> a.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;completed&#x27;</span> <span class="hljs-keyword">and</span> cities.name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;London&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">HOUR</span>(trips.request_at) <span class="hljs-keyword">between</span> <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> <span class="hljs-number">5</span><br>;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="Q7"><a href="#Q7" class="headerlink" title="Q7"></a>Q7</h4><p>Given the table below for contents, user account and show title</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-number">1.</span> Use <span class="hljs-keyword">SQL</span> <span class="hljs-keyword">to</span> calculate how many accounts signed up <span class="hljs-keyword">in</span> Q3 <span class="hljs-number">2017</span> have never <span class="hljs-keyword">search</span> played HouseOfCards <span class="hljs-keyword">within</span> the week <span class="hljs-keyword">of</span> signup?<br><br><span class="hljs-keyword">select</span><br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> k2.account_id)<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br><span class="hljs-keyword">distinct</span> account_id<br><span class="hljs-keyword">from</span> <br>acct_signup_f<br><span class="hljs-keyword">where</span> DATE_format(signup_date,<span class="hljs-string">&#x27;%Y-%m-%d&#x27;</span>) <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;2017-07-01&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;2017-09-01&#x27;</span>) <span class="hljs-keyword">as</span> k2<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span><br>(<span class="hljs-keyword">select</span><br>a.accound_id,<br><span class="hljs-built_in">sum</span>(a.search_play_secs) <span class="hljs-keyword">as</span> play_time<br><span class="hljs-keyword">from</span> acct_seach <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> acct_signup<br><span class="hljs-keyword">on</span> acct_seach.account_id <span class="hljs-operator">=</span> acct_signup.account_id<br><span class="hljs-keyword">and</span> acct_seach.search_date <span class="hljs-operator">&lt;=</span> DATEADD(week,<span class="hljs-number">1</span>,acct_signup.signupdate)<br><span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> show_d <span class="hljs-keyword">on</span> a.search_show_title_id <span class="hljs-operator">=</span> show_d.show_title_id<br><span class="hljs-keyword">where</span> show_d.show_desc <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;HouseOfCards&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-number">1</span><br><span class="hljs-keyword">having</span> play_time <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span>) <span class="hljs-keyword">as</span> k1<br><span class="hljs-keyword">on</span> k2.account_id <span class="hljs-operator">=</span> k1.account_id<br><span class="hljs-keyword">where</span> k1.account_id <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span><br>;<br><br><br><span class="hljs-number">2.</span> Calculate the percentage <span class="hljs-keyword">of</span> accounts that signed up <span class="hljs-keyword">in</span> Q3 <span class="hljs-number">2017</span> have never <span class="hljs-keyword">search</span> played HouseOfCards <span class="hljs-keyword">within</span> the week <span class="hljs-keyword">of</span> signup?<br><br><span class="hljs-keyword">select</span><br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> k2.account_id) <span class="hljs-keyword">as</span> total<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> k1.account_id <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">end</span>)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> k2.account_id) <span class="hljs-keyword">AS</span> perc<br><span class="hljs-keyword">from</span><br>(<span class="hljs-keyword">select</span><br><span class="hljs-keyword">distinct</span> account_id<br><span class="hljs-keyword">from</span> <br>acct_signup_f<br><span class="hljs-keyword">where</span> DATE_format(signup_date,<span class="hljs-string">&#x27;%Y-%m-%d&#x27;</span>) <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;2017-07-01&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;2017-09-01&#x27;</span>) <span class="hljs-keyword">as</span> k2<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span><br>(<span class="hljs-keyword">select</span><br>a.accound_id,<br><span class="hljs-built_in">sum</span>(a.search_play_secs) <span class="hljs-keyword">as</span> play_time<br><span class="hljs-keyword">from</span> acct_seach <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> acct_signup<br><span class="hljs-keyword">on</span> acct_seach.account_id <span class="hljs-operator">=</span> acct_signup.account_id<br><span class="hljs-keyword">and</span> acct_seach.search_date <span class="hljs-operator">&lt;=</span> DATEADD(week,<span class="hljs-number">1</span>,acct_signup.signupdate)<br><span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> show_d <span class="hljs-keyword">on</span> a.search_show_title_id <span class="hljs-operator">=</span> show_d.show_title_id<br><span class="hljs-keyword">where</span> show_d.show_desc <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;HouseOfCards&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-number">1</span><br><span class="hljs-keyword">having</span> play_time <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span>) <span class="hljs-keyword">as</span> k1<br><span class="hljs-keyword">on</span> k2.account_id <span class="hljs-operator">=</span> k1.account_id<br>;<br><br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/09/18/SQL/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;09&#x2F;18&#x2F;SQL&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;09&#x2F;18&#x2F;SQL&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/09/28/linked-list/"><i class="iconfont iconleft"></i>linked-list</a>
+    <a href="/2022/08/27/weekly-contest/">weekly-contest<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Window-Function"><span class="toc-text">Window Function</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Order-of-execution-of-query"><span class="toc-text">Order of execution of query</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DATE-x2F-TIME"><span class="toc-text">DATE&#x2F;TIME</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-table"><span class="toc-text">Create table</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Split-string-into-rows"><span class="toc-text">Split string into rows</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

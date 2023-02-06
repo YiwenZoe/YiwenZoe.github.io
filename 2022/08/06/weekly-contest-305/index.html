@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weekly-contest-305 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Leetcode 2368 Reachable Nod...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">weekly-contest-305</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">weekly-contest-305</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 06, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6941</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="Leetcode-2368-Reachable-Nodes-With-Restrictions"><a href="#Leetcode-2368-Reachable-Nodes-With-Restrictions" class="headerlink" title="Leetcode 2368 Reachable Nodes With Restrictions"></a>Leetcode 2368 Reachable Nodes With Restrictions</h4><ul>
+<li>*** BFS&#x2F;DFS ***</li>
+</ul>
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><ul>
+<li>build the graph</li>
+<li>queue&#x2F;visited</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reachableNodes</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, edges: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], restricted: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># set use O(1) time to search if a value exist in it</span><br>        restricted = <span class="hljs-built_in">set</span>(restricted)<br>        <span class="hljs-comment"># step1 build the graph</span><br>        g = collections.defaultdict(<span class="hljs-built_in">set</span>)<br>        <span class="hljs-keyword">for</span> a,b <span class="hljs-keyword">in</span> edges:<br>            <span class="hljs-keyword">if</span> a <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> restricted <span class="hljs-keyword">and</span> b <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> restricted:<br>                g[a].add(b)<br>                g[b].add(a)<br>        <br>        <span class="hljs-comment"># step2 initialize queue/visited</span><br>        queue = deque([<span class="hljs-number">0</span>])<br>        visited = <span class="hljs-built_in">set</span>()<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> queue:<br>            next_level = deque()<br>            <span class="hljs-keyword">while</span> queue:<br>                cur = queue.popleft()<br>                ans += <span class="hljs-number">1</span><br>                visited.add(cur)<br>                <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[cur]:<br>                    <span class="hljs-keyword">if</span> nei <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> visited:<br>                        next_level.append(nei)<br>            <span class="hljs-keyword">if</span> next_level:<br>                queue = next_level<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h4><ul>
+<li>build the graph</li>
+<li>color &#x3D; [0,1,2]</li>
+<li>Only visit the node of the color of the node is 0</li>
+<li>the count of node is the count of color &#x3D; 2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reachableNodes</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, edges: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], restricted: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>         <span class="hljs-comment"># set use O(1) time to search if a value exist in it</span><br>        restricted = <span class="hljs-built_in">set</span>(restricted)<br>        <span class="hljs-comment"># step1 build the graph</span><br>        g = collections.defaultdict(<span class="hljs-built_in">set</span>)<br>        <span class="hljs-keyword">for</span> a,b <span class="hljs-keyword">in</span> edges:<br>            <span class="hljs-keyword">if</span> a <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> restricted <span class="hljs-keyword">and</span> b <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> restricted:<br>                g[a].add(b)<br>                g[b].add(a)<br>        <br>        <span class="hljs-comment"># DFS</span><br>        <span class="hljs-comment"># step2 set initial state of all nodes as 0(Not visited)</span><br>        color = [<span class="hljs-number">0</span>]*n<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-comment"># python中数值变量在function之外需要声明 nonlocal</span><br>            <span class="hljs-keyword">nonlocal</span> ans<br>            <span class="hljs-comment"># change of state of the node to 1 visiting</span><br>            color[node] = <span class="hljs-number">1</span><br>            <span class="hljs-comment"># iterate the neighbors of the node, only if the state of the neighbor is 0 will continue dfs</span><br>            <span class="hljs-keyword">for</span> nei <span class="hljs-keyword">in</span> g[node]:<br>                <span class="hljs-keyword">if</span> color[nei] == <span class="hljs-number">0</span>:<br>                    dfs(nei)<br>            <br>            <span class="hljs-comment"># dfs end, change the state of the node to 2 --&gt; visiting end</span><br>            color[node] = <span class="hljs-number">2</span><br>            ans += <span class="hljs-number">1</span><br>        <span class="hljs-comment"># run the function</span><br>        dfs(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="Leetcode-2369-Check-if-There-is-a-Valid-Partition-For-The-Array"><a href="#Leetcode-2369-Check-if-There-is-a-Valid-Partition-For-The-Array" class="headerlink" title="Leetcode 2369 Check if There is a Valid Partition For The Array"></a>Leetcode 2369 Check if There is a Valid Partition For The Array</h4><ul>
+<li><p>*** DFS ***</p>
+</li>
+<li><p>存不存在 –&gt; DFS @cache</p>
+</li>
+<li><p>最短路径 –&gt; BFS</p>
+</li>
+<li><p>cache -&gt; memory search, only dfs once</p>
+</li>
+<li><p>start from base case</p>
+</li>
+<li><p>The meaning of dfs function(what is the return value)</p>
+</li>
+<li><p>The relationship between dfs(n) and dfs(n+x)</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">validPartition</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        n = <span class="hljs-built_in">len</span>(nums)<br><br>        <span class="hljs-comment"># boolean whether there is at least one valid partition from index to end</span><br><span class="hljs-meta">        @cache</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">index</span>):<br>            <span class="hljs-comment"># base case </span><br>            <span class="hljs-keyword">if</span> index == n-<span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">elif</span> index == n-<span class="hljs-number">2</span>:<br>                <span class="hljs-keyword">if</span> nums[index] == nums[index+<span class="hljs-number">1</span>]:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">elif</span> index == n-<span class="hljs-number">3</span>:<br>                <span class="hljs-keyword">if</span> nums[index] == nums[index+<span class="hljs-number">1</span>] == nums[index+<span class="hljs-number">2</span>]:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">elif</span> nums[index] + <span class="hljs-number">1</span> == nums[index+<span class="hljs-number">1</span>] <span class="hljs-keyword">and</span> nums[index] + <span class="hljs-number">2</span> == nums[index+<span class="hljs-number">2</span>]:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-comment"># index &gt; n - 3</span><br>            <span class="hljs-comment"># The relationship between dfs(index) and dfs(index+n)</span><br>            <span class="hljs-comment"># whether there is at least one valid partition from index to end</span><br>            <span class="hljs-comment"># 分类讨论</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">if</span> nums[index] == nums[index+<span class="hljs-number">1</span>]:<br>                    <span class="hljs-keyword">if</span> dfs(index+<span class="hljs-number">2</span>) == <span class="hljs-literal">True</span>:<br>                        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                    <span class="hljs-keyword">else</span>:<br>                        <span class="hljs-keyword">if</span> nums[index+<span class="hljs-number">1</span>] == nums[index+<span class="hljs-number">2</span>]:<br>                            <span class="hljs-keyword">if</span> dfs(index+<span class="hljs-number">3</span>) == <span class="hljs-literal">True</span>:<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">if</span> nums[index]+<span class="hljs-number">1</span> == nums[index+<span class="hljs-number">1</span>] <span class="hljs-keyword">and</span> nums[index]+<span class="hljs-number">2</span> == nums[index+<span class="hljs-number">2</span>]:<br>                        <span class="hljs-keyword">if</span> dfs(index+<span class="hljs-number">3</span>) == <span class="hljs-literal">True</span>:<br>                            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">return</span> dfs(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-2370-Longest-Ideal-Subsequence"><a href="#Leetcode-2370-Longest-Ideal-Subsequence" class="headerlink" title="Leetcode 2370 Longest Ideal Subsequence"></a>Leetcode 2370 Longest Ideal Subsequence</h4><ul>
+<li>*** DFS ***</li>
+<li>*** DP ***</li>
+</ul>
+<h4 id="DFS-–-gt-TLE"><a href="#DFS-–-gt-TLE" class="headerlink" title="DFS –&gt; TLE"></a>DFS –&gt; TLE</h4><ul>
+<li>Start from base case<ul>
+<li>index &#x3D;&#x3D; n-1: return 1</li>
+</ul>
+</li>
+<li>For each index, find the valid adjacent letters among 26 letters according to K</li>
+<li>Choose the first valid adjacent letters in the string(smallest index) <ul>
+<li>Dictionary record the index of each letter in s</li>
+<li>Choose the letter with the largest dfs value</li>
+</ul>
+</li>
+<li>The meaning of dfs function(what is the return value)<ul>
+<li>return start from index to end the length of the longest ideal subsequences</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> bisect<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">longestIdealString</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(s)<br>        alp = <span class="hljs-string">&#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span><br>        <span class="hljs-comment"># step1 Create a map to record the indexs of each letter in s</span><br>        d = defaultdict(<span class="hljs-built_in">list</span>)<br>        <span class="hljs-keyword">for</span> index, letter <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>            d[letter].append(index)<br><br>        <span class="hljs-comment"># step2 Return start from index to end the length of the longst subsequences</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">index</span>):<br>            <span class="hljs-comment"># base case</span><br>            <span class="hljs-keyword">if</span> index == n-<span class="hljs-number">1</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>            <br>            <span class="hljs-comment"># use temp to store the letter with largest dfs value</span><br>            temp = <span class="hljs-number">0</span><br>            <span class="hljs-comment"># Find all the valid letters of index according to K</span><br>            <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> alp:<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(<span class="hljs-built_in">ord</span>(l) - <span class="hljs-built_in">ord</span>(s[index])) &lt;= k:<br>                    <span class="hljs-comment"># 二分法找到在s中的第一个l(j&gt;index)</span><br>                    j = bisect.bisect_right(d[l], index)<br>                    <span class="hljs-comment"># 没有找到</span><br>                    <span class="hljs-keyword">if</span> j == <span class="hljs-built_in">len</span>(d[l]): <span class="hljs-keyword">continue</span><br>                    l_longest = dfs(d[l][j])<br>                    <span class="hljs-keyword">if</span> temp &lt; l_longest:<br>                        temp = l_longest<br>            <span class="hljs-keyword">return</span> temp + <span class="hljs-number">1</span><br>        <br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>):<br>            i_logest = dfs(i)<br>            <span class="hljs-keyword">if</span> ans &lt; i_logest:<br>                ans = i_logest<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h4><ul>
+<li><p>Explanation</p>
+<ul>
+<li><p>dp[c] means the length of the longest ideal subsequence ending with character c.</p>
+</li>
+<li><p>Iterate the character i in string s, c can be the next character for string ending from i - k to i + k.So that dp[i] &#x3D; max(dp[i-k], dp[i-k+1] … , dp[i+k]) + 1.</p>
+</li>
+<li><p>return the max(dp) as result.</p>
+</li>
+</ul>
+</li>
+<li><p>Complexity</p>
+<ul>
+<li>Time O(n)</li>
+<li>Space O(128)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method 1</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">longestIdealString</span>(<span class="hljs-params">self, s, k</span>):<br>    dp = [<span class="hljs-number">0</span>] * <span class="hljs-number">128</span><br>    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> s:<br>        i = <span class="hljs-built_in">ord</span>(c)<br>        dp[i] = <span class="hljs-built_in">max</span>(dp[i-k:i+k+<span class="hljs-number">1</span>]) + <span class="hljs-number">1</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(dp)<br><br><span class="hljs-comment"># Method 2</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">longestIdealString</span>(<span class="hljs-params">self, s, k</span>):<br>    dp = [<span class="hljs-number">0</span>]*<span class="hljs-number">26</span><br>    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> s:<br>        i = <span class="hljs-built_in">ord</span>(c) - <span class="hljs-number">97</span><br>        tmp = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span>:<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(<span class="hljs-built_in">ord</span>(l) - <span class="hljs-built_in">ord</span>(c)) &lt;= k:<br>                j = <span class="hljs-built_in">ord</span>(l) - <span class="hljs-number">97</span><br>                <span class="hljs-keyword">if</span> tmp &lt; dp[j] + <span class="hljs-number">1</span>:<br>                    tmp = dp[j] + <span class="hljs-number">1</span><br>        dp[i] = tmp<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(dp)<br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/08/06/weekly-contest-305/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;08&#x2F;06&#x2F;weekly-contest-305&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;08&#x2F;06&#x2F;weekly-contest-305&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weekly-contest/" rel="tag">weekly-contest</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/08/14/weekly-contest-306/"><i class="iconfont iconleft"></i>weekly-contest-306</a>
+    <a href="/2022/08/06/biweekly-contest-84/">biweekly-contest-84<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

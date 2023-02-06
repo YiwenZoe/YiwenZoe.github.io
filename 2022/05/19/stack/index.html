@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>stack - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Chapter2 Data StructureStac...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">stack</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">stack</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 19, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>5585</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h3 id="Chapter2-Data-Structure"><a href="#Chapter2-Data-Structure" class="headerlink" title="Chapter2 Data Structure"></a>Chapter2 Data Structure</h3><h4 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h4><ol start="836">
+<li>模拟堆<br>如何手写一个堆？<br>堆是一个完全二叉树，父节点与子节点的关系可以用下表来联系<br>左儿子：2n<br>右儿子：2n + 1<br>就数组模拟来说，知道数组的下标就知道结点在堆中的位置。所以核心就在于即使有down和up操作也能维护堆数组的下标（k）和结点（idx）的映射关系。比如说：h[k] &#x3D; x, h数组存的是节点的值，按理来说应该h[idx]来存，但是节点位置总是在变的，因此维护k和idx的映射关系就好啦!(维护下标k和第idx个插入的数之间的映射关系)</li>
+</ol>
+<p>举例： 用ph数组来表示ph[idx] &#x3D; k(idx到下标), 那么结点值为h[ph[idx]], 儿子为ph[idx] * 2和ph[idx] * 2 + 1, 这样值和儿子结点不就可以通过idx联系在一起了吗？</p>
+<ul>
+<li><p>第idx个插入的数在堆中的下表是k。h[k]表示堆中下标为k堆数的值。所以这个插入的数的数值为h[ph[idx]]。左儿子的下标为ph[idx] * 2, 右儿子的下标为ph[idx] * 2 + 1</p>
+</li>
+<li><p>ph[idx] &#x3D; k: 第idx个插入的数在堆中的下标为k</p>
+</li>
+<li><p>hp[k] &#x3D; idx: 堆中下标为k的数是第idx个插入的数</p>
+</li>
+</ul>
+<ol>
+<li><p>插入一个数 </p>
+<ul>
+<li>在堆这个数据结构中，数据的插入都是插入到堆尾，然后再up</li>
+<li>heap[++ size] &#x3D; x; up(size)</li>
+</ul>
+</li>
+<li><p>求当前集合中的最小值</p>
+<ul>
+<li>root值</li>
+<li>heap[1]</li>
+</ul>
+</li>
+<li><p>删除最小值</p>
+<ul>
+<li>root与最后一个数交换</li>
+<li>删除最后一个数</li>
+<li>然后把新的root down一遍</li>
+<li>heap[1] &#x3D; heap[size];size –; down(1)</li>
+</ul>
+</li>
+<li><p>删除任意一个元素</p>
+<ul>
+<li>删除操作，三个步骤：<ol>
+<li>找到第idx个插入元素在堆数组中的位置（堆数组下标）</li>
+<li>与堆尾元素交换</li>
+<li>在原来第idx个元素所在的位置进行down和up操作。（up，down，swap操作的都输入都是下标）</li>
+</ol>
+</li>
+<li>heap[k] &#x3D; heap[size]; size –; down[k]; up[k]; (只会执行一个)</li>
+</ul>
+</li>
+<li><p>修改任意一个数</p>
+<ul>
+<li>heap[k] &#x3D; x; down(k); up(k)</li>
+</ul>
+</li>
+</ol>
+<h4 id="3个Functions来实现一个堆"><a href="#3个Functions来实现一个堆" class="headerlink" title="3个Functions来实现一个堆"></a>3个Functions来实现一个堆</h4><ul>
+<li>h[k] &#x3D; x:存储的是节点的值</li>
+<li>ph[x]:第x个插入的数在堆里的下标</li>
+<li>hp[x]:堆中下标是x的数是第几个插入的</li>
+</ul>
+<ol>
+<li>heap_swap(a,b)<br>a,b: the index of the numbers in stack</li>
+</ol>
+<ul>
+<li>swap the numbers -&gt; heap_swap(h[a], h[b])<ul>
+<li>h[index_a] &#x3D; num_a, h[index_b] &#x3D; num_b –&gt; h[index_a] &#x3D; num_b, h[index_b] &#x3D; num_a</li>
+</ul>
+</li>
+<li>swap ph[hp [a]], ph[hp [b]]. 第hp<a href="idx1">a</a>个和第hp<a href="idx2">b</a>个插入的数在stack中的index下标交换<ul>
+<li>ph[hp[index_a]] &#x3D; index_a, ph[hp[index_b]] &#x3D; index_b –&gt; ph[hp[index_a]] &#x3D; index_b, ph[hp[index_b]]] &#x3D; index_a</li>
+</ul>
+</li>
+<li>swap the hp[a], hp[b] -&gt; heap_swap(hp[a], hp[b]). 本来下标为a的num是idx1个插入的数，下标为b的num是idx2个插入的数。现在要交换，下标为b的num是idx1个插入的数，下标为a的num是idx2个插入的数。<ul>
+<li>hp[a] &#x3D; idx1, hp[b] &#x3D; idx2 –&gt; hp[a] &#x3D; idx2, hp[b] &#x3D; idx1</li>
+</ul>
+</li>
+</ul>
+<h4 id="理解heap-swap"><a href="#理解heap-swap" class="headerlink" title="理解heap_swap"></a>理解heap_swap</h4><ul>
+<li>Assume hp[index_1] &#x3D; 1, hp[index_2] &#x3D; 2. 原本第1个插入的数的下标是index_1, 第二个插入的数的下标是index_2. 经过交换后，第1个插入的数的下标变成index_2，第二个插入的数的下标变成index_1. 所以 ph[hp[index_1]] &#x3D; ph[1] &#x3D; index_2, ph[hp[index_2]] &#x3D; ph[2] &#x3D; index_1. 下标交换之后，现在index_1上的number是第二个插入的数字，所以hp[index_1] &#x3D; 2， 同理 hp[index_1] &#x3D; 1. 所有hp 也要交换。</li>
+</ul>
+<ol start="2">
+<li>down()</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1.堆的操作只需要 down up swap 就可以实现</span><br><br><span class="hljs-comment"># 2.堆其实就是一个完全二叉数，分为小堆，大堆，他的性质是每一个节点u 的左儿子是2u，右儿子是2u+1；</span><br><br><span class="hljs-comment"># 3.小堆的父节点小于他的儿子，大堆的父节点大于他的儿子</span><br><br><span class="hljs-comment">#一维数组存一个数，左儿子是2x 右儿子2x+1 root 从 1 开始比较方便 要是从0 开始 2x = 0 冲突</span><br><span class="hljs-comment"># 插入一个数：         heap[++size] = x;  up(size)</span><br><span class="hljs-comment"># 求集合当中最小的值：  heap[1]</span><br><span class="hljs-comment"># 删除最小值：         heap[1] = heap[size]; size--; down[1]</span><br><span class="hljs-comment"># 删除任意一个元素     heap[k] = heap[size]; size --; down[k]; up[k]; (只会执行一个)</span><br><span class="hljs-comment"># 修改任意一个元素     heap[k] = x; down[k]; up[k];</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">heap_swap</span>(<span class="hljs-params">a,b</span>):<br>    ph[hp[a]],ph[hp[b]] = ph[hp[b]],ph[hp[a]]               <span class="hljs-comment">#交换ph查找的值（也就是在堆中对应值的下标）</span><br>    hp[a],hp[b] = hp[b],hp[a]                               <span class="hljs-comment">#因为ph交换了 对应 hp也要交换</span><br>    h[a],h[b] = h[b],h[a]                                   <span class="hljs-comment">#交换数值</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">down</span>(<span class="hljs-params">u</span>): <span class="hljs-comment"># （递归小根堆） 需要down的跟节点</span><br><br>    t = u                                                   <span class="hljs-comment"># t —&gt; 用来储存u的最小儿子</span><br>    <span class="hljs-keyword">if</span> u * <span class="hljs-number">2</span> &lt;= size <span class="hljs-keyword">and</span> h[u*<span class="hljs-number">2</span>] &lt; h[t]: t = u * <span class="hljs-number">2</span>           <span class="hljs-comment"># 先与左儿子比较大小</span><br>    <span class="hljs-keyword">if</span> u * <span class="hljs-number">2</span> + <span class="hljs-number">1</span> &lt;= size <span class="hljs-keyword">and</span> h[u*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>] &lt; h[t]: t = u * <span class="hljs-number">2</span> + <span class="hljs-number">1</span> <span class="hljs-comment"># 再与右儿子比较大小</span><br><br>    <span class="hljs-keyword">if</span> u != t:                                              <span class="hljs-comment"># 如果t不相等意味着u还不满足小堆的条件于最小儿子交换后继续down</span><br>        heap_swap(u,t)                              <span class="hljs-comment">#要down的节点和较小子节点交换数值</span><br>        down(t)                                             <span class="hljs-comment">#交换后继续检查是否能down</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">up</span>(<span class="hljs-params">u</span>): <span class="hljs-comment"># （递归小根堆）</span><br><br>    <span class="hljs-keyword">while</span> u//<span class="hljs-number">2</span> <span class="hljs-keyword">and</span> h [u // <span class="hljs-number">2</span>] &gt; h [u]:                      <span class="hljs-comment">#跟父节点交换 直到父节点小于等于此节点</span><br>        heap_swap(u//<span class="hljs-number">2</span>,u)<br>        u//=<span class="hljs-number">2</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    N = <span class="hljs-number">100010</span><br>    n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>()) <span class="hljs-comment"># n次操作</span><br>    h = [<span class="hljs-number">0</span>] * N<br>    size = <span class="hljs-number">0</span> <span class="hljs-comment"># stack size</span><br>    m = <span class="hljs-number">0</span> <span class="hljs-comment"># 插入数的个数</span><br>    ph,hp = [<span class="hljs-number">0</span>]*N,[<span class="hljs-number">0</span>]*N      <span class="hljs-comment"># ph -&gt; put heap ph[k]储存第k个插入的数在堆中的下标  hp[a]储存的是 a是第几个插入的 ph hp 互查</span><br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>        s = <span class="hljs-built_in">input</span>()<br>        op = s[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>]<br>        <span class="hljs-keyword">if</span> op == <span class="hljs-string">&#x27;I &#x27;</span>:<br>            x = <span class="hljs-built_in">int</span>(s[<span class="hljs-number">2</span>:])<br>            size += <span class="hljs-number">1</span><br>            m += <span class="hljs-number">1</span><br>            ph[m], hp[size] = size, m<br>            h[size] = x<br>            up(size)<br><br><br>        <span class="hljs-keyword">elif</span> op == <span class="hljs-string">&#x27;D &#x27;</span>:<br>            k = <span class="hljs-built_in">int</span>(s[<span class="hljs-number">2</span>:])<br>            k = ph[k]<br>            heap_swap(k,size)<br>            size -= <span class="hljs-number">1</span><br>            down(k)<br>            up(k)<br><br>        <span class="hljs-keyword">elif</span> op == <span class="hljs-string">&#x27;C &#x27;</span>:<br>            k,x = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,s[<span class="hljs-number">2</span>:].split())<br>            k = ph[k]<br>            h[k] = x<br>            down(k)<br>            up(k)<br><br>        <span class="hljs-keyword">elif</span> op == <span class="hljs-string">&#x27;PM&#x27;</span>:<br>            <span class="hljs-built_in">print</span>(h[<span class="hljs-number">1</span>])<br><br>        <span class="hljs-keyword">elif</span> op == <span class="hljs-string">&#x27;DM&#x27;</span>:<br>            heap_swap(<span class="hljs-number">1</span>,size)<br>            size -=<span class="hljs-number">1</span><br>            down(<span class="hljs-number">1</span>)<br><br></code></pre></td></tr></table></figure>
+
+
+<h4 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h4><h4 id="Leetcode-496"><a href="#Leetcode-496" class="headerlink" title="Leetcode 496"></a>Leetcode 496</h4><ol>
+<li>To find the next greater element, we need to maintain a monotonically decreasing stack<ul>
+<li>To maintain a monotonically decreasing stack: 判断条件：如果要放进来的元素 &gt;&#x3D; 栈顶元素，把栈顶元素pop出来，直到满足条件</li>
+<li>pop栈顶元素的同时，记录下栈顶元素的信息和要放进来的新元素</li>
+</ul>
+</li>
+<li>To find the next smaller element, we need to maintain a monotonically increasing stack<ul>
+<li>To maintain a monotonically increasing stack: 判断条件：如果要放进来的元素 &lt;&#x3D; 栈顶元素，把栈顶元素pop出来，直到满足条件</li>
+<li>pop栈顶元素的同时，记录下栈顶元素的信息和要放进来的新元素</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">nextGreaterElement</span>(<span class="hljs-params">self, nums1: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], nums2: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        <span class="hljs-comment"># 维护一个单调递减栈</span><br>        <span class="hljs-comment"># 判断条件：如果要放进来的元素  &gt;= 栈顶元素，把栈顶元素pop出来，直到满足条件</span><br>        destack = []<br>        d = collections.defaultdict(<span class="hljs-built_in">int</span>)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums2)):<br>            new = nums2[i]<br>            <span class="hljs-keyword">while</span> destack <span class="hljs-keyword">and</span> new &gt;= destack[-<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]:<br>                top_num, top_index = destack.pop()<br>                d[top_index] = i<br>    <br>            destack.append((new,i))<br>        <br>        ans = []<br>        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> nums1:<br>            index = nums2.index(num)<br>            <span class="hljs-keyword">if</span> index <span class="hljs-keyword">in</span> d:<br>                ans.append(nums2[d[index]])<br>            <span class="hljs-keyword">else</span>:<br>                ans.append(-<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+
+
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/05/19/stack/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;05&#x2F;19&#x2F;stack&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;05&#x2F;19&#x2F;stack&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AcWing/" rel="tag">AcWing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trie/" rel="tag">trie</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/05/22/weekly-contest-294/"><i class="iconfont iconleft"></i>weekly-contest-294</a>
+    <a href="/2022/05/12/difference/">difference<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter2-Data-Structure"><span class="toc-text">Chapter2 Data Structure</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weekly-contest-318 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Leetcode 2461 Maximum Sum o...">
+  <meta name="author" content="Zoe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">weekly-contest-318</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">weekly-contest-318</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 05, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4761</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h4 id="Leetcode-2461-Maximum-Sum-of-Distinct-Subarrays-With-Length-K"><a href="#Leetcode-2461-Maximum-Sum-of-Distinct-Subarrays-With-Length-K" class="headerlink" title="Leetcode 2461 Maximum Sum of Distinct Subarrays With Length K"></a>Leetcode 2461 Maximum Sum of Distinct Subarrays With Length K</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method1</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maximumSubarraySum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        ans = ii = rsm = <span class="hljs-number">0</span> <br>        seen = <span class="hljs-built_in">set</span>()<br>        <span class="hljs-keyword">for</span> i, x <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums): <br>            <span class="hljs-keyword">while</span> x <span class="hljs-keyword">in</span> seen <span class="hljs-keyword">or</span> i-ii == k: <br>                seen.remove(nums[ii])<br>                rsm -= nums[ii]<br>                ii += <span class="hljs-number">1</span><br>            seen.add(x)<br>            rsm += x<br>            <span class="hljs-keyword">if</span> i-ii == k-<span class="hljs-number">1</span>: ans = <span class="hljs-built_in">max</span>(ans, rsm)<br>        <span class="hljs-keyword">return</span> ans <br><br><span class="hljs-comment"># Method2</span><br><span class="hljs-keyword">from</span> sortedcontainers <span class="hljs-keyword">import</span> SortedList<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maximumSubarraySum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        res = <span class="hljs-number">0</span><br>        n = <span class="hljs-built_in">len</span>(nums)<br>        ps1 = [<span class="hljs-number">0</span>]<br>        ps2 = [<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> nums:<br>            ps1.append(ps1[-<span class="hljs-number">1</span>]  + num)<br>        <br>        ct = Counter()<br>        cct = SortedList()<br>        <br>        cur = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k):<br>            cur += nums[i]<br>            <br>            prev = ct[nums[i]]<br>            <span class="hljs-keyword">try</span>:<br>                cct.remove(prev)<br>            <span class="hljs-keyword">except</span>:<br>                <span class="hljs-keyword">pass</span><br>            <br>            ct[nums[i]] += <span class="hljs-number">1</span><br>            cct.add(ct[nums[i]])<br>            <span class="hljs-comment"># print(cct)</span><br>        <span class="hljs-keyword">if</span> cct[-<span class="hljs-number">1</span>] &lt;= <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">if</span> cur &gt; res: res = cur<br>        <br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k,n):<br>            cur -= nums[i-k]<br>            cur += nums[i]<br>            prev = ct[nums[i-k]]<br>            <span class="hljs-keyword">try</span>:<br>                cct.remove(prev)<br>            <span class="hljs-keyword">except</span>:<br>                <span class="hljs-keyword">pass</span><br>            <span class="hljs-comment"># print(cct)</span><br>            prev = ct[nums[i]]<br>            <span class="hljs-keyword">try</span>:<br>                cct.remove(prev)<br>            <span class="hljs-keyword">except</span>:<br>                <span class="hljs-keyword">pass</span><br>            <span class="hljs-comment"># print(cct)</span><br>            ct[nums[i-k]] -= <span class="hljs-number">1</span><br>            cct.add(ct[nums[i-k]])<br>            <span class="hljs-comment"># print(cct)</span><br>            ct[nums[i]] += <span class="hljs-number">1</span><br>            cct.add(ct[nums[i]])<br>            <span class="hljs-comment"># print(cct)</span><br>            <span class="hljs-comment"># print()</span><br>            <br>            <span class="hljs-keyword">if</span> cct[-<span class="hljs-number">1</span>] &lt;= <span class="hljs-number">1</span>: <br>                <span class="hljs-keyword">if</span> cur &gt; res:<br>                    res = cur<br>            <br>            <br>        <span class="hljs-keyword">return</span> res<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="Leetcode-2462-Total-Cost-to-Hire-K-Workers"><a href="#Leetcode-2462-Total-Cost-to-Hire-K-Workers" class="headerlink" title="Leetcode 2462 Total Cost to Hire K Workers"></a>Leetcode 2462 Total Cost to Hire K Workers</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method1</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">totalCost</span>(<span class="hljs-params">self, costs: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span>, candidates: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        q = costs[:candidates]<br>        qq = costs[<span class="hljs-built_in">max</span>(candidates, <span class="hljs-built_in">len</span>(costs)-candidates):]<br>        heapify(q)<br>        heapify(qq)<br>        ans = <span class="hljs-number">0</span> <br>        i, ii = candidates, <span class="hljs-built_in">len</span>(costs)-candidates-<span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k): <br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> qq <span class="hljs-keyword">or</span> q <span class="hljs-keyword">and</span> q[<span class="hljs-number">0</span>] &lt;= qq[<span class="hljs-number">0</span>]: <br>                ans += heappop(q)<br>                <span class="hljs-keyword">if</span> i &lt;= ii: <br>                    heappush(q, costs[i])<br>                    i += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>: <br>                ans += heappop(qq)<br>                <span class="hljs-keyword">if</span> i &lt;= ii: <br>                    heappush(qq, costs[ii])<br>                    ii -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> ans <br><br><br><span class="hljs-comment"># Method2</span><br><span class="hljs-keyword">from</span> heapq <span class="hljs-keyword">import</span> heappush, heappop<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">totalCost</span>(<span class="hljs-params">self, costs: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span>, c: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        h1,h2 = [],[]<br>        n = <span class="hljs-built_in">len</span>(costs)<br>        ss = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-number">2</span>*c &gt;= n:<br>            costs.sort()<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(costs[:k])<br>            <br>            <br>        <span class="hljs-keyword">else</span>:<br>            ans = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(c):<br>                heappush(h1,costs[i])<br>                heappush(h2,costs[-(<span class="hljs-number">1</span> + i)])<br>                ss += <span class="hljs-number">2</span><br>            used = <span class="hljs-number">0</span><br>            lb = c - <span class="hljs-number">1</span><br>            rb = n - c<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k):<br>                <span class="hljs-comment"># print(&quot;before selection&quot;, h1,h2, lb, rb)</span><br>                <br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(h1) == <span class="hljs-number">0</span>:<br>                    ans += heappop(h2)<br>                <span class="hljs-keyword">elif</span> <span class="hljs-built_in">len</span>(h2) == <span class="hljs-number">0</span>:<br>                    ans += heappop(h1)<br>                <span class="hljs-keyword">else</span>:<br>                    c1,c2 = h1[<span class="hljs-number">0</span>], h2[<span class="hljs-number">0</span>]<br>                    <span class="hljs-keyword">if</span> c1 &lt;= c2:<br>                        ans += heappop(h1)<br>                        nt = lb + <span class="hljs-number">1</span><br>                        <br>                        <span class="hljs-keyword">if</span> nt &lt; rb:<br>                            lb += <span class="hljs-number">1</span><br>                            heappush(h1,costs[nt])<br>                    <span class="hljs-keyword">else</span>:<br>                        ans += heappop(h2)<br>                        nt = rb - <span class="hljs-number">1</span><br>                        <br>                        <span class="hljs-keyword">if</span> nt &gt; lb:<br>                            rb -= <span class="hljs-number">1</span><br>                            heappush(h2,costs[nt])<br>                <span class="hljs-comment"># print(&quot;after selection&quot;, h1, h2, lb, rb, &quot;\n&quot;)</span><br>            <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+<h4 id="OA"><a href="#OA" class="headerlink" title="OA"></a>OA</h4><p>If exist :<br>nums[i] &#x3D;&#x3D; nums[j] and abs(i-j) &lt;&#x3D; k: return True<br>else:<br>return False</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Method1</span><br><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br>ct = Counter()<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">exist</span>(<span class="hljs-params">nums</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k+<span class="hljs-number">1</span>):<br>        ct[nums[i]] += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> ct[nums[i]] &gt; <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k+<span class="hljs-number">1</span>,n):<br>        ct[nums[i-k-<span class="hljs-number">1</span>]] -= <span class="hljs-number">1</span><br>        ct[nums[i]] += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> ct[nums[i]] &gt; <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zoe</li>
+    <li><strong>本文链接：</strong><a href="http://cs-stat.herokuapp.com/2022/11/05/weekly-contest-318/index.html" title="http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;11&#x2F;05&#x2F;weekly-contest-318&#x2F;index.html">http:&#x2F;&#x2F;cs-stat.herokuapp.com&#x2F;2022&#x2F;11&#x2F;05&#x2F;weekly-contest-318&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weekly-contest/" rel="tag">weekly-contest</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/11/12/weekly-contest-319/"><i class="iconfont iconleft"></i>weekly-contest-319</a>
+    <a href="/2022/11/05/data-visualization/">data-visualization<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
